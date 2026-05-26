@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basketbalschoenenshop</title>
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <script src="javascript/script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="title-box">
+    <h1>De Beste Basketbalwinkel</h1>
+    <p>Bekijk zeker ook onze nieuwe collectie</p>
+  </div>
+   <nav>
+    <a href="index.html">Home</a>
+    <a href ="product.html">Product</a>
+    <a href="Nieuwe-collectie.html">Nieuwe Collectie</a>
+    <a href="contact.html">Contact</a>
+    <a href="winkelmandje.html">🛒</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+</header>
+
+<section class="filters">
+  <button class="filter-btn" data-category="all">Alles</button>
+  <button class="filter-btn" data-category="Kobe">Kobe</button>
+  <button class="filter-btn" data-category="KD">KD</button>
+  <button class="filter-btn" data-category="Lebron">Lebron</button>
+  <button class="filter-btn" data-category="Sabrina">Sabrina</button>
+  <button class="filter-btn" data-category="Rigorer">Rigorer</button>
+  <button class="filter-btn" data-category="GT cut">GT cut</button>
+</section>
+
+<section class="search-bar">
+
+  <input type="text" id="searchInput" placeholder="Zoek schoenen...">
+
+  <select id="sortSelect">
+    <option value="default">Sorteer</option>
+    <option value="low-high">Prijs laag → hoog</option>
+    <option value="high-low">Prijs hoog → laag</option>
+  </select>
+
+</section>
+
+<section class="products" id="products"></section>
+
+<footer>
+  <p>© 2026 De Beste Basketbalwinkel</p>
+</footer>
+
+</body>
+</html>

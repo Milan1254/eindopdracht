@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - Basketbalschoenenshop</title>
+
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>De Beste Basketbalwinkel</h1>
+
+    <nav>
+    <a href="index.html">Home</a>
+    <a href ="product.html">Product</a>
+    <a href="Nieuwe-collectie.html">Nieuwe Collectie</a>
+    <a href="contact.html">Contact</a>
+    <a href="winkelmandje.html">🛒</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+  </header>
+
+<section class="contact-container">
+
+    <h2>Neem Contact Op</h2>
+
+    <p>
+        Heb je vragen over onze basketbalschoenen of je bestelling?
+        Vul het formulier hieronder in!
+    </p>
+
+    <form class="contact-form" id="contactForm">
+
+        <label for="name">Naam</label>
+        <input 
+            type="text" 
+            id="name"
+            placeholder="Jouw naam"
+        >
+
+        <small class="error" id="nameError"></small>
+
+        <label for="email">E-mail</label>
+        <input 
+            type="email" 
+            id="email"
+            placeholder="Jouw e-mail"
+        >
+
+        <small class="error" id="emailError"></small>
+
+        <label for="message">Bericht</label>
+        <textarea 
+            id="message"
+            placeholder="Jouw bericht"
+            rows="6"
+        ></textarea>
+
+        <small class="error" id="messageError"></small>
+
+        <button type="submit" class="btn">
+            Verstuur Bericht
+        </button>
+
+        <p id="successMessage"></p>
+
+    </form>
+
+</section>
+
+</body>
+</html>

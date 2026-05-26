@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afrekenen</title>
+
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <script src="javascript/script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+
+  <h1>Afrekenen</h1>
+
+   <nav>
+    <a href="index.html">Home</a>
+    <a href ="product.html">Product</a>
+    <a href="Nieuwe-collectie.html">Nieuwe Collectie</a>
+    <a href="contact.html">Contact</a>
+    <a href="winkelmandje.html">🛒</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+
+</header>
+
+<section class="contact-container">
+
+  <form id="checkoutForm" class="contact-form">
+
+```
+<label>Naam</label>
+<input type="text" id="checkoutName">
+
+<small class="error" id="checkoutNameError"></small>
+
+<label>Adres</label>
+<input type="text" id="checkoutAddress">
+
+<small class="error" id="checkoutAddressError"></small>
+
+<label>Postcode</label>
+<input type="text" id="checkoutZip">
+
+<small class="error" id="checkoutZipError"></small>
+
+<button class="btn" type="submit">
+  Bestelling plaatsen
+</button>
+
+<p id="checkoutSuccess"></p>
+```
+
+  </form>
+
+</section>
+
+</body>
+</html>
