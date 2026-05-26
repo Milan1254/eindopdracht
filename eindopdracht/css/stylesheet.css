@@ -90,7 +90,6 @@ nav a::after {
     height: 2px;
 
     background: orange;
-    transition: 0.3s;
 }
 
 nav a:hover::after {
@@ -102,9 +101,6 @@ nav a:hover::after {
 .hero {
     position: relative;
     height: 85vh;
-
-    background:
-    url("../afbeeldingen/hero.jpg") center/cover no-repeat;
 
     display: flex;
     justify-content: center;
@@ -206,7 +202,6 @@ nav a:hover::after {
 }
 
 .card:hover {
-    transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(255,165,0,0.3);
 }
 
@@ -216,12 +211,8 @@ nav a:hover::after {
     object-fit: cover;
     display: block;
 
-    transition: 0.3s;
 }
 
-.card:hover img {
-    transform: scale(1.05);
-}
 
 .card-content {
     padding: 20px;
@@ -260,7 +251,6 @@ nav a:hover::after {
 
 .btn:hover {
     background: white;
-    transform: scale(1.03);
 }
 
 /* HOME */
@@ -282,10 +272,6 @@ nav a:hover::after {
     border-radius: 20px;
     text-align: center;
     transition: 0.3s;
-}
-
-.feature-box:hover {
-    transform: translateY(-10px);
 }
 
 .feature-box span {
@@ -322,14 +308,11 @@ nav a:hover::after {
     font-weight: bold;
 
     color: orange;
-
-    transition: 0.3s;
 }
 
 .brand-card:hover {
     background: orange;
     color: black;
-    transform: scale(1.05);
 }
 
 /* CONTACT */
