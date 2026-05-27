@@ -191,6 +191,10 @@ nav a:hover::after {
     display: block;
 }
 
+.card img {
+    object-fit: cover; /* Zorgt dat alle afbeeldingen dezelfde grootte hebben zonder uitrekken */
+}
+
 
 .card-content {
     padding: 20px;
