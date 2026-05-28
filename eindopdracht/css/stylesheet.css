@@ -11,16 +11,16 @@ html {
 }
 
 body {
-    background: #111;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #111111;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ALGEMEEN */
 
 body p {
     text-align: center;
-    color: white;
+    color: #FFFFFF;
     margin-top: 20px;
     margin-bottom: 40px;
     font-size: 20px;
@@ -30,13 +30,13 @@ h2 {
     text-align: center;
     margin-top: 40px;
     font-size: 36px;
-    color: orange;
+    color: #FFA500;
 }
 
 /* HEADER */
 
 header {
-    background: black;
+    background: #000000;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,7 @@ header {
 }
 
 header h1 {
-    color: orange;
+    color: #FFA500;
     font-size: 32px;
 }
 
@@ -62,14 +62,14 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 16px;
     position: relative;
 }
 
 nav a:hover {
-    color: orange;
+    color: #FFA500;
 }
 
 nav a::after {
@@ -78,7 +78,7 @@ nav a::after {
     bottom: -5px;
     width: 0%;
     height: 2px;
-    background: orange;
+    background: #FFA500;
 }
 
 nav a:hover::after {
@@ -100,7 +100,7 @@ nav a:hover::after {
 
 .overlay {
     position: absolute;
-    background: black;
+    background: #000000;
 }
 
 .hero-content {
@@ -111,7 +111,7 @@ nav a:hover::after {
 
 .hero-content h2 {
     font-size: 70px;
-    color: orange;
+    color: #FFA500;
     margin-bottom: 20px;
 }
 
@@ -156,13 +156,13 @@ nav a:hover::after {
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
-    background: orange;
-    color: black;
+    background: #FFA500;
+    color: #000000;
     font-weight: bold;
 }
 
 .filter-btn:hover {
-    background: white;
+    background: #FFFFFF;
 }
 
 /* PRODUCTEN */
@@ -178,11 +178,11 @@ nav a:hover::after {
 /* CARDS */
 
 .card {
-    background: #1c1c1c;
+    background: #1C1C1C;
     width: 300px;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid #222222;
 }
 
 .card img {
@@ -195,7 +195,6 @@ nav a:hover::after {
     object-fit: cover; /* Zorgt dat alle afbeeldingen dezelfde grootte hebben zonder uitrekken */
 }
 
-
 .card-content {
     padding: 20px;
 }
@@ -207,7 +206,7 @@ nav a:hover::after {
 }
 
 .price {
-    color: orange;
+    color: #FFA500;
     font-size: 24px;
     margin: 15px 0;
     font-weight: bold;
@@ -222,15 +221,15 @@ nav a:hover::after {
     border: none;
     border-radius: 10px;
 
-    background: orange;
-    color: black;
+    background: #FFA500;
+    color: #000000;
 
     font-size: 16px;
     font-weight: bold;
 }
 
 .btn:hover {
-    background: white;
+    background: #FFFFFF;
 }
 
 /* HOME */
@@ -247,7 +246,7 @@ nav a:hover::after {
 }
 
 .feature-box {
-    background: #1c1c1c;
+    background: #1C1C1C;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
@@ -259,7 +258,7 @@ nav a:hover::after {
 
 .feature-box h3 {
     margin: 20px 0;
-    color: orange;
+    color: #FFA500;
 }
 
 /* BRANDS */
@@ -277,7 +276,7 @@ nav a:hover::after {
 }
 
 .brand-card {
-    background: black;
+    background: #000000;
     padding: 50px;
     text-align: center;
 
@@ -286,12 +285,12 @@ nav a:hover::after {
     font-size: 28px;
     font-weight: bold;
 
-    color: orange;
+    color: #FFA500;
 }
 
 .brand-card:hover {
-    background: orange;
-    color: black;
+    background: #FFA500;
+    color: #000000;
 }
 
 /* CONTACT */
@@ -300,7 +299,7 @@ nav a:hover::after {
     max-width: 700px;
     margin: 50px auto;
 
-    background: #1c1c1c;
+    background: #1C1C1C;
 
     padding: 40px;
     border-radius: 15px;
@@ -309,14 +308,14 @@ nav a:hover::after {
 }
 
 .contact-container h2 {
-    color: orange;
+    color: #FFA500;
     margin-bottom: 20px;
     font-size: 32px;
 }
 
 .contact-container p {
     margin-bottom: 30px;
-    color: #ccc;
+    color: #CCCCCC;
 }
 
 .contact-form {
@@ -336,17 +335,17 @@ nav a:hover::after {
 .contact-form label {
     text-align: left;
     font-weight: bold;
-    color: orange;
+    color: #FFA500;
 }
 
 .error {
-    color: red;
+    color: #FF0000;
     font-size: 14px;
     text-align: left;
 }
 
 #successMessage {
-    color: lightgreen;
+    color: #90EE90;
     margin-top: 20px;
     font-weight: bold;
 }
@@ -354,9 +353,9 @@ nav a:hover::after {
 /* FOOTER */
 
 footer {
-    background: black;
+    background: #000000;
     text-align: center;
     padding: 30px;
     margin-top: 50px;
-    color: #999;
+    color: #999999;
 }
