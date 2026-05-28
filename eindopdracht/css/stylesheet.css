@@ -15,6 +15,9 @@ body {
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
 }
+h1, h2 {
+  font-family: 'Poppins', serif;
+}
 
 /* ALGEMEEN */
 
@@ -359,3 +362,5 @@ footer {
     margin-top: 50px;
     color: #999999;
 }
+
+/* ===== LOCATION SECTION ===== */
