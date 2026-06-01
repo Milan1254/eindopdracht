@@ -364,3 +364,26 @@ footer {
 }
 
 /* ===== LOCATION SECTION ===== */
+.location-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 40px;
+    flex-wrap: wrap; /* zorgt voor responsive gedrag op kleine schermen */
+}
+
+.location iframe {
+    width: 600px;
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.location-info {
+    max-width: 350px;
+}
+
+.location-info p {
+    text-align: left;
+    margin-bottom: 25px;
+}
