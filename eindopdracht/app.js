@@ -8,39 +8,39 @@ const API_URL = "http://localhost/eindopdracht/eindopdracht/api.php";
 // Fallback data: wordt gebruikt als de database/API niet werkt,
 // zodat de pagina toch iets toont.
 const FALLBACK_PRODUCTEN = [
-    { id: 1, naam: "Kobe 6 Total Orange", categorie_id: 1, prijs: 180 },
-    { id: 2, naam: "Kobe 6 Reverse Grinch", categorie_id: 1, prijs: 180 },
-    { id: 3, naam: "Kobe 6 Grinch", categorie_id: 1, prijs: 180 },
-    { id: 4, naam: "Kobe 6 Dodgers", categorie_id: 1, prijs: 180 },
-    { id: 5, naam: "Kobe 4 Girldad", categorie_id: 1, prijs: 180 },
-    { id: 6, naam: "Kobe 4 Gold Medal", categorie_id: 1, prijs: 180 },
-    { id: 7, naam: "Kobe 4 Black Mamba", categorie_id: 1, prijs: 180 },
-    { id: 8, naam: "Kobe 4 Philly", categorie_id: 1, prijs: 180 },
+    { id: 1, naam: "Kobe 6 Total Orange", categorie_id: 1, prijs: 180, image: "afbeeldingen/kobe-6-total-orange.avif" },
+    { id: 2, naam: "Kobe 6 Reverse Grinch", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-6-reverse-grinch.jpg" },
+    { id: 3, naam: "Kobe 6 Grinch", categorie_id: 1, prijs: 180, image: "afbeeldingen/kobe-6-grinch.webp" },
+    { id: 4, naam: "Kobe 6 Dodgers", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-6-Dodgers.jpg" },
+    { id: 5, naam: "Kobe 4 Girldad", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-4-Girldad.jpg" },
+    { id: 6, naam: "Kobe 4 Gold Medal", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-4-Gold-Medal.webp" },
+    { id: 7, naam: "Kobe 4 Black Mamba", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-4-Black-Mamba.jpg" },
+    { id: 8, naam: "Kobe 4 Philly", categorie_id: 1, prijs: 180, image: "afbeeldingen/Kobe-4-Philly.jpg" },
 
-    { id: 9, naam: "Nike JA 3 Jelly Bean", categorie_id: 2, prijs: 130 },
-    { id: 10, naam: "Nike JA 3 Max Volume", categorie_id: 2, prijs: 130 },
-    { id: 11, naam: "Nike JA 3 Zombie", categorie_id: 2, prijs: 130 },
+    { id: 9, naam: "Nike JA 3 Jelly Bean", categorie_id: 2, prijs: 130, image: "afbeeldingen/Nike-Ja-3-Jelly-Bean.jpeg" },
+    { id: 10, naam: "Nike JA 3 Max Volume", categorie_id: 2, prijs: 130, image: "afbeeldingen/Nike-Ja-3-Max-Volume.webp" },
+    { id: 11, naam: "Nike JA 3 Zombie", categorie_id: 2, prijs: 130, image: "afbeeldingen/Nike-Ja-3-Zombie.jpg" },
 
-    { id: 12, naam: "KD 18 Aunt Pearl", categorie_id: 3, prijs: 160 },
-    { id: 13, naam: "KD 18 Slim Reaper", categorie_id: 3, prijs: 160 },
-    { id: 14, naam: "KD 18 Pink Photo Blue", categorie_id: 3, prijs: 160 },
-    { id: 15, naam: "KD 18 Washed Purple", categorie_id: 3, prijs: 160 },
+    { id: 12, naam: "KD 18 Aunt Pearl", categorie_id: 3, prijs: 160, image: "afbeeldingen/KD-18-Aunt-Pearl.webp" },
+    { id: 13, naam: "KD 18 Slim Reaper", categorie_id: 3, prijs: 160, image: "afbeeldingen/KD-18-Slim-Reaper.webp" },
+    { id: 14, naam: "KD 18 Pink Photo Blue", categorie_id: 3, prijs: 160, image: "afbeeldingen/KD-18-Pink-Photo-Blue.webp" },
+    { id: 15, naam: "KD 18 Washed Purple", categorie_id: 3, prijs: 160, image: "afbeeldingen/KD-18-Washed purple.webp" },
 
-    { id: 16, naam: "Lebron XXII Limelight", categorie_id: 4, prijs: 190 },
-    { id: 17, naam: "Lebron XXII Grand Opening", categorie_id: 4, prijs: 190 },
+    { id: 16, naam: "Lebron XXII Limelight", categorie_id: 4, prijs: 190, image: "afbeeldingen/Lebron-XXII-Limelight.webp" },
+    { id: 17, naam: "Lebron XXII Grand Opening", categorie_id: 4, prijs: 190, image: "afbeeldingen/Lebron-XXII-Grand-Opening.webp" },
 
-    { id: 18, naam: "Sabrina 3 Crimson Tint", categorie_id: 5, prijs: 130 },
-    { id: 19, naam: "Sabrina 3 Gamer", categorie_id: 5, prijs: 130 },
-    { id: 20, naam: "Sabrina EP Blueprint", categorie_id: 5, prijs: 130 },
+    { id: 18, naam: "Sabrina 3 Crimson Tint", categorie_id: 5, prijs: 130, image: "afbeeldingen/Sabrina-3-Crimson-Tint.webp" },
+    { id: 19, naam: "Sabrina 3 Gamer", categorie_id: 5, prijs: 130, image: "afbeeldingen/Sabrina-3-Gamer.webp" },
+    { id: 20, naam: "Sabrina EP Blueprint", categorie_id: 5, prijs: 130, image: "afbeeldingen/Sabrina-3-EP-Blueprint.jpeg" },
 
-    { id: 21, naam: "Rigorer BP1 Family Matters", categorie_id: 6, prijs: 140 },
-    { id: 22, naam: "Rigorer AR1 Juicy Peach", categorie_id: 6, prijs: 140 },
-    { id: 23, naam: "Rigorer AR2 15 Flavours", categorie_id: 6, prijs: 140 },
-    { id: 24, naam: "Rigorer AR2 Snowman", categorie_id: 6, prijs: 140 },
+    { id: 21, naam: "Rigorer BP1 Family Matters", categorie_id: 6, prijs: 140, image: "afbeeldingen/Rigorer-BP1-Family-Matters.webp" },
+    { id: 22, naam: "Rigorer AR1 Juicy Peach", categorie_id: 6, prijs: 140, image: "afbeeldingen/Rigorer-AR1-Juicy-Peach.webp" },
+    { id: 23, naam: "Rigorer AR2 15 Flavours", categorie_id: 6, prijs: 140, image: "afbeeldingen/Rigorer-AR2-15Flavours.webp" },
+    { id: 24, naam: "Rigorer AR2 Snowman", categorie_id: 6, prijs: 140, image: "afbeeldingen/Rigorer-AR2-Snowman.webp" },
 
-    { id: 25, naam: "Nike GT Cut 2 Hyper Pink", categorie_id: 7, prijs: 180 },
-    { id: 26, naam: "Nike GT Cut 2 Arike Ogunbowale", categorie_id: 7, prijs: 180 },
-    { id: 27, naam: "Nike GT Cut 2 Black Phantom", categorie_id: 7, prijs: 180 }
+    { id: 25, naam: "Nike GT Cut 2 Hyper Pink", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Hyper-Pink.jpg" },
+    { id: 26, naam: "Nike GT Cut 2 Arike Ogunbowale", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Arike-Ogunbowale.jpg" },
+    { id: 27, naam: "Nike GT Cut 2 Black Phantom", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Black-Phantom.jpg" }
 ];
 
 // runQuery: stuurt een SQL-string naar de API en geeft het resultaat terug.
