@@ -96,6 +96,7 @@ function showProducts() {
   });
 }
 
+
 /* CART */
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -285,5 +286,51 @@ if (checkoutForm) {
       localStorage.removeItem("cart");
       checkoutForm.reset();
     }
+  });
+}
+
+
+/* NIEUWE COLLECTIE */
+
+const nieuweCollectie = [
+  {
+    name: "KD 18 International Blue",
+    price: 160,
+    image: "afbeeldingen/KD-18-International-Blue.webp"
+  },
+  {
+    name: "Nike Book 2 Rising",
+    price: 150,
+    image: "afbeeldingen/BOOK-2-Rising.webp"
+  },
+  {
+    name: "Nike Book 2 Sundial",
+    price: 150,
+    image: "afbeeldingen/Book-2-Sundial.webp"
+  }
+];
+
+const newCollectionContainer = document.getElementById("newCollectionContainer");
+
+if (newCollectionContainer) {
+  nieuweCollectie.forEach(shoe => {
+    const card = document.createElement("div");
+
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <img src="${shoe.image}" alt="${shoe.name}">
+      <div class="card-content">
+        <h3>${shoe.name}</h3>
+        <p class="price">€${shoe.price}</p>
+        <button class="btn">Koop nu</button>
+      </div>
+    `;
+
+    card.querySelector(".btn").addEventListener("click", () => {
+      addToCart(shoe);
+    });
+
+    newCollectionContainer.appendChild(card);
   });
 }
