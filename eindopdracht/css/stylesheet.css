@@ -235,6 +235,17 @@ nav a:hover::after {
     background: #FFFFFF;
 }
 
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.checkout-container .btn {
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+}
 /* HOME */
 
 .home-section {

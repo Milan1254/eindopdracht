@@ -40,7 +40,7 @@ const FALLBACK_PRODUCTEN = [
 
     { id: 25, naam: "Nike GT Cut 2 Hyper Pink", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Hyper-Pink.jpg" },
     { id: 26, naam: "Nike GT Cut 2 Arike Ogunbowale", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Arike-Ogunbowale.jpg" },
-    { id: 27, naam: "Nike GT Cut 2 Black Phantom", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Black-Phantom" }
+    { id: 27, naam: "Nike GT Cut 2 Black Phantom", categorie_id: 7, prijs: 180, image: "afbeeldingen/Nike-GT-CUT2-Black-Phantom.jpg" }
 ];
 
 // runQuery: stuurt een SQL-string naar de API en geeft het resultaat terug.
