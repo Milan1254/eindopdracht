@@ -74,23 +74,6 @@ nav a {
   position: relative;
 }
 
-nav a:hover {
-  color: #38BDF8;
-}
-
-nav a::after {
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #38BDF8;
-  transition: width 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
 
 /* HERO */
 
@@ -182,16 +165,12 @@ nav a:hover::after {
   background: #0EA5E9;
 }
 
-/* PRODUCTEN - nu 3 naast elkaar en responsief */
-
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 40px;
 }
-
-/* GESTANDAARDISEERDE KAARTEN */
 
 .card {
   background: #1F2937;
@@ -202,13 +181,8 @@ nav a:hover::after {
   align-items: center;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
 
 .card img {
   width: 100%;
@@ -217,10 +191,6 @@ nav a:hover::after {
   border-radius: 10px;
   margin-bottom: 15px;
   transition: transform 0.2s;
-}
-
-.card img:hover {
-  transform: scale(1.05);
 }
 
 .card h3 {
@@ -248,13 +218,8 @@ nav a:hover::after {
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
-  transition: background-color 0.2s, transform 0.2s;
 }
 
-.in-winkelmand:hover {
-  background-color: #0EA5E9;
-  transform: scale(1.05);
-}
 
 /* BUTTONS */
 .btn {
@@ -285,14 +250,11 @@ nav a:hover::after {
   text-decoration: none;
 }
 
-/* HOME - kleiner achtergrond */
 
 .home-section {
   padding: 80px 40px;
-  /* kleiner gemaakt */
 }
 
-/* grid-3 voor overzichtelijke layout op home */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
