@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js"></script>
+</head>
+<body>
+    <H1>Producten</H1>
+    <div id="productenlijst"></div>
+</body>
+<script type="module">
+    let producten = [];
+   
+    async function laadProducten(){
+      producten = await runQuery("SELECT naam, ROUND(prijs * 1.21,2) as prijs, afbeelding FROM producten;");
+    console.log(producten);  
+
+    const lijst = document.querySelector("#productenlijst");
+    lijst.innerHTML = "";
+    for(let product of producten){
+        let html = `<p>${product.naam} - ${product.prijs} </p>
+        <img style="width:100px;height:auto;" src="${product.afbeelding}" alt="${product.naam}">`;
+        lijst.innerHTML += html;
+    }
+    }
+    laadProducten();
+    
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+
+    <h1>Productdetail</h1>
+
+    <!-- Deze velden worden door JavaScript gevuld -->
+    <p>Naam: <span id="naam"></span></p>
+    <p>Prijs: &euro;<span id="prijs"></span></p>
+    <p>Categorie: <span id="categorie"></span></p>
+
+    <p><a href="index.html">Terug naar de lijst</a></p>
+
+    <!-- Eerst de helper laden, dan de pagina-functies -->
+    <script src="app.js"></script>
+    <script src="producten.js"></script>
+    <script>
+        // Vul het detail zodra de pagina geladen is
+        toonProductDetail();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Producten</title>
+</head>
+<body>
+
+    <h1>Producten</h1>
+
+    <p><a href="crud.html">Producten beheren</a></p>
+
+    <!-- De lijst wordt door JavaScript gevuld -->
+    <ul id="productenLijst"></ul>
+
+    <!-- Eerst de helper laden, dan de pagina-functies -->
+    <script src="app.js"></script>
+    <script src="producten.js"></script>
+    <script>
+        // Vul de lijst zodra de pagina geladen is
+        toonProducten();
+    </script>
+
+</body>
+</html>
