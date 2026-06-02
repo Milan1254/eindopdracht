@@ -321,3 +321,4 @@ if (newCollectionContainer) {
     newCollectionContainer.appendChild(card);
   });
 }
+

@@ -49,6 +49,16 @@
 
 <section class="products" id="products"></section>
 
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  let producten = await runQuerry("SELECT * from producten WHERE productid = " +id);
+
+let product = producten[0];
+document.querySelector("#naam").textcontent = product.naam;
+</script>
+
 <footer>
   <p>© 2026 De Beste Basketbalwinkel</p>
 </footer>
