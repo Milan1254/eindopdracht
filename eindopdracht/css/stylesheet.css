@@ -11,10 +11,11 @@ html {
 }
 
 body {
-    background: #111111;
-    color: #FFFFFF;
+    background: #111827;
+    color: #F8FAFC;
     font-family: 'Poppins', sans-serif;
 }
+
 h1, h2 {
   font-family: 'Poppins', serif;
 }
@@ -23,7 +24,7 @@ h1, h2 {
 
 body p {
     text-align: center;
-    color: #FFFFFF;
+    color: #F8FAFC;
     margin-top: 20px;
     margin-bottom: 40px;
     font-size: 20px;
@@ -33,13 +34,13 @@ h2 {
     text-align: center;
     margin-top: 40px;
     font-size: 36px;
-    color: #FFA500;
+    color: #38BDF8;
 }
 
 /* HEADER */
 
 header {
-    background: #000000;
+    background: #0F172A;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -53,7 +54,7 @@ header {
 }
 
 header h1 {
-    color: #FFA500;
+    color: #38BDF8;
     font-size: 32px;
 }
 
@@ -65,14 +66,14 @@ nav {
 }
 
 nav a {
-    color: #FFFFFF;
+    color: #F8FAFC;
     text-decoration: none;
     font-size: 16px;
     position: relative;
 }
 
 nav a:hover {
-    color: #FFA500;
+    color: #38BDF8;
 }
 
 nav a::after {
@@ -81,7 +82,7 @@ nav a::after {
     bottom: -5px;
     width: 0%;
     height: 2px;
-    background: #FFA500;
+    background: #38BDF8;
 }
 
 nav a:hover::after {
@@ -103,7 +104,7 @@ nav a:hover::after {
 
 .overlay {
     position: absolute;
-    background: #000000;
+    background: #0F172A;
 }
 
 .hero-content {
@@ -114,7 +115,7 @@ nav a:hover::after {
 
 .hero-content h2 {
     font-size: 70px;
-    color: #FFA500;
+    color: #38BDF8;
     margin-bottom: 20px;
 }
 
@@ -139,6 +140,8 @@ nav a:hover::after {
     border: none;
     border-radius: 10px;
     font-size: 16px;
+    background: #F8FAFC;
+    color: #111827;
 }
 
 .search-bar input {
@@ -159,13 +162,13 @@ nav a:hover::after {
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
-    background: #FFA500;
-    color: #000000;
+    background: #38BDF8;
+    color: #F8FAFC;
     font-weight: bold;
 }
 
 .filter-btn:hover {
-    background: #FFFFFF;
+    background: #0EA5E9;
 }
 
 /* PRODUCTEN */
@@ -181,11 +184,11 @@ nav a:hover::after {
 /* CARDS */
 
 .card {
-    background: #1C1C1C;
+    background: #1F2937;
     width: 300px;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #222222;
+    border: 1px solid #374151;
 }
 
 .card img {
@@ -195,7 +198,7 @@ nav a:hover::after {
 }
 
 .card img {
-    object-fit: cover; /* Zorgt dat alle afbeeldingen dezelfde grootte hebben zonder uitrekken */
+    object-fit: cover;
 }
 
 .card-content {
@@ -209,7 +212,7 @@ nav a:hover::after {
 }
 
 .price {
-    color: #FFA500;
+    color: #38BDF8;
     font-size: 24px;
     margin: 15px 0;
     font-weight: bold;
@@ -224,15 +227,15 @@ nav a:hover::after {
     border: none;
     border-radius: 10px;
 
-    background: #FFA500;
-    color: #000000;
+    background: #38BDF8;
+    color: #F8FAFC;
 
     font-size: 16px;
     font-weight: bold;
 }
 
 .btn:hover {
-    background: #FFFFFF;
+    background: #0EA5E9;
 }
 
 .checkout-container {
@@ -246,6 +249,7 @@ nav a:hover::after {
     text-align: center;
     text-decoration: none;
 }
+
 /* HOME */
 
 .home-section {
@@ -260,7 +264,7 @@ nav a:hover::after {
 }
 
 .feature-box {
-    background: #1C1C1C;
+    background: #1F2937;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
@@ -272,14 +276,14 @@ nav a:hover::after {
 
 .feature-box h3 {
     margin: 20px 0;
-    color: #FFA500;
+    color: #38BDF8;
 }
 
 /* BRANDS */
 
 .brands {
     padding: 80px 40px;
-    background: #181818;
+    background: #0F172A;
 }
 
 .brand-grid {
@@ -290,7 +294,7 @@ nav a:hover::after {
 }
 
 .brand-card {
-    background: #000000;
+    background: #1F2937;
     padding: 50px;
     text-align: center;
 
@@ -299,12 +303,12 @@ nav a:hover::after {
     font-size: 28px;
     font-weight: bold;
 
-    color: #FFA500;
+    color: #38BDF8;
 }
 
 .brand-card:hover {
-    background: #FFA500;
-    color: #000000;
+    background: #38BDF8;
+    color: #F8FAFC;
 }
 
 /* CONTACT */
@@ -313,7 +317,7 @@ nav a:hover::after {
     max-width: 700px;
     margin: 50px auto;
 
-    background: #1C1C1C;
+    background: #1F2937;
 
     padding: 40px;
     border-radius: 15px;
@@ -322,14 +326,14 @@ nav a:hover::after {
 }
 
 .contact-container h2 {
-    color: #FFA500;
+    color: #38BDF8;
     margin-bottom: 20px;
     font-size: 32px;
 }
 
 .contact-container p {
     margin-bottom: 30px;
-    color: #CCCCCC;
+    color: #CBD5E1;
 }
 
 .contact-form {
@@ -344,22 +348,24 @@ nav a:hover::after {
     border: none;
     border-radius: 10px;
     font-size: 16px;
+    background: #F8FAFC;
+    color: #111827;
 }
 
 .contact-form label {
     text-align: left;
     font-weight: bold;
-    color: #FFA500;
+    color: #38BDF8;
 }
 
 .error {
-    color: #FF0000;
+    color: #EF4444;
     font-size: 14px;
     text-align: left;
 }
 
 #successMessage {
-    color: #90EE90;
+    color: #38BDF8;
     margin-top: 20px;
     font-weight: bold;
 }
@@ -367,21 +373,22 @@ nav a:hover::after {
 /* FOOTER */
 
 footer {
-    background: #000000;
+    background: #0F172A;
     text-align: center;
     padding: 30px;
     margin-top: 50px;
-    color: #999999;
+    color: #94A3B8;
 }
 
 /* ===== LOCATION SECTION ===== */
+
 .location-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
     padding: 80px 40px;
-    flex-wrap: wrap; /* zorgt voor responsive gedrag op kleine schermen */
+    flex-wrap: wrap;
 }
 
 .location iframe {
