@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Basketbalschoenen</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/stylesheet.css">
+
   <script src="app.js" defer></script>
   <script src="javascript/script.js" defer></script>
+  <script>
+        // Vul de lijst zodra de pagina geladen is
+        toonProducten();
+    </script>
 </head>
 
 <body>
@@ -28,10 +34,10 @@
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 
   <img src="afbeeldingen/background.jpg" class="hero-bg" alt="basketbal achtergrond">
-
   <div class="overlay"></div>
 
   <div class="hero-content">
@@ -41,11 +47,13 @@
       Speel op topniveau met premium basketbalschoenen van NBA-legendes zoals Kobe, LeBron en KD.
     </p>
 
-    <a href="product.html" class="btn">Shop Nu</a>
+    <!-- FIX: geen losse product.html meer -->
+    <a href="#productenLijst" class="btn">Shop Nu</a>
   </div>
 
 </section>
 
+<!-- FEATURES -->
 <section class="home-section">
 
   <h2>Waarom kiezen voor ons?</h2>
@@ -74,6 +82,7 @@
 
 </section>
 
+<!-- BRANDS -->
 <section class="brands">
 
   <h2>Populaire Merken</h2>
@@ -87,6 +96,8 @@
 
   </div>
 </section>
+
+<!-- LOCATION -->
 <section class="location-wrapper">
 
   <div class="location">
@@ -117,9 +128,21 @@
 
 </section>
 
+<!-- 🆕 PRODUCTEN (FIX) -->
+<section class="products-section">
+
+  <h2>Onze Producten</h2>
+
+  <ul id="productenLijst"></ul>
+
+</section>
+
 <footer>
   <p>© 2026 Basketbalschoenen Shop</p>
 </footer>
+
+
+</script>
 
 </body>
 </html>

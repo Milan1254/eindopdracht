@@ -8,13 +8,31 @@
   <script src="app.js" defer></script> 
   <script src="javascript/script.js" defer></script>
 <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
+  async function loadProduct() {
+    const id = new URLSearchParams(window.location.search).get("id");
+    const product = (await runQuery("SELECT * FROM producten WHERE id = " + id))[0];
+    document.querySelector("#naam").textContent = product.naam;
+  }
+  loadProduct();
+</script>
 
-  let producten = await runQuerry("SELECT * from producten WHERE productid = " +id);
+<script type="module">
+    let producten = [];
+   
+    async function laadProducten(){
+      producten = await runQuery("SELECT naam, ROUND(prijs * 1.21,2) as prijs, afbeelding FROM producten;");
+    console.log(producten);  
 
-let product = producten[0];
-document.querySelector("#naam").textcontent = product.naam;
+    const lijst = document.querySelector("#productenlijst");
+    lijst.innerHTML = "";
+    for(let product of producten){
+        let html = `<p>${product.naam} - ${product.prijs} </p>
+        <img style="width:100px;height:auto;" src="${product.afbeelding}" alt="${product.naam}">`;
+        lijst.innerHTML += html;
+    }
+    }
+    laadProducten();
+    
 </script>
 
 </head>
