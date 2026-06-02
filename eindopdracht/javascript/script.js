@@ -15,14 +15,14 @@ let currentSort = "default";
 let products = [];
 
 async function loadProducts() {
-  const data = await runQuery("SELECT * FROM product");
+  const data = await runQuery("SELECT * FROM producten");
 
   products = data.map(producten => ({
     id: producten.id,
     name: producten.naam,
     price: Number(producten.prijs),
     image: producten.image,
-    category: getCategory(product.categorie_id)
+    category: getCategory(producten.categorie_id)
   }));
 
   showProducts(); // BELANGRIJK
@@ -130,7 +130,7 @@ if (sortSelect) {
 }
 
 /* INIT */
-loadProducts();   // ❗ DIT IS BELANGRIJK (NIET showProducts())
+loadProducts();
 
 /* WINKELMANDJE */
 function renderCart() {
