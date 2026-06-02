@@ -216,7 +216,6 @@ function renderCart() {
             } else {
                 cart.splice(index, 1);
             }
-
             saveCart(cart);
             renderCart();
         });
@@ -241,16 +240,43 @@ function renderCart() {
 
 async function toonProductDetail() {
     const id = new URLSearchParams(window.location.search).get("id");
-
     if (!id) return;
 
-    const data = await runQuery(`
-        SELECT * FROM producten WHERE productid = ${id}
-    `);
+    // runQuery functie
+    async function runQuery(sql) {
+        try {
+            const response = await fetch("http://localhost/eindopdracht/eindopdracht/api.php?sql=" + encodeURIComponent(sql));
+            const result = await response.json();
+            if (result.success) {
+                return result.data;
+            } else {
+                console.error("SQL fout:", result.error);
+                return [];
+            }
+        } catch (fout) {
+            console.error("API niet bereikbaar:", fout);
+            return [];
+        }
+    }
+
+    const data = await runQuery(`SELECT * FROM producten WHERE productid = ${id}`);
+
+    if (data.length === 0) {
+        // Als product niet gevonden, laat een melding zien en maak body zichtbaar
+        document.body.innerHTML = "<p>Product niet gevonden</p>";
+        document.body.style.display = "block"; // Zorg dat body zichtbaar is
+        return;
+    }
 
     const product = data[0];
-    if (!product) return;
 
+    // Maak <main> zichtbaar nadat de gegevens geladen zijn
+    const main = document.querySelector("main");
+    if (main) {
+        main.style.display = "block";
+    }
+
+    // Vul de velden in
     const naam = document.getElementById("naam");
     const prijs = document.getElementById("prijs");
     const afbeelding = document.getElementById("afbeelding");
@@ -259,7 +285,7 @@ async function toonProductDetail() {
     if (naam) naam.textContent = product.naam;
     if (prijs) prijs.textContent = "€" + product.prijs;
     if (afbeelding) afbeelding.src = product.afbeelding;
-    if (beschrijving) beschrijving.textContent = product.beschrijving;
+    if (beschrijving) beschrijving.textContent = product.beschrijving || "Geen beschrijving beschikbaar.";
 }
 
 /* =========================
@@ -288,7 +314,8 @@ if (productsContainer) {
 
 renderCart();
 
+// Als je op product.html bent, wordt hier de detail weergave geladen
 if (window.location.pathname.includes("product.html")) {
+    // Roep deze functie aan om productdetails te laden
     toonProductDetail();
 }
-
