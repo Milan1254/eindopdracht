@@ -21,7 +21,7 @@ async function loadProducts() {
     id: producten.id,
     name: producten.naam,
     price: Number(producten.prijs),
-    image: producten.image,
+    image: producten.afbeelding,
     category: getCategory(producten.categorie_id)
   }));
 
