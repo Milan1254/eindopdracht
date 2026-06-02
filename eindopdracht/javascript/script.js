@@ -25,7 +25,7 @@ async function loadProducts() {
     category: getCategory(producten.categorie_id)
   }));
 
-  showProducts(); // BELANGRIJK
+  showProducts(); 
 }
 
 function getCategory(id) {
