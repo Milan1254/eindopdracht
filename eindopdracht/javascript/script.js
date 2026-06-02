@@ -1,40 +1,3 @@
-/* products */
-const products = [
-  { name: "Kobe 6 Total Orange", category: "Kobe", price: 180, image: "afbeeldingen/kobe-6-total-orange.avif" },
-  { name: "Kobe 6 Reverse Grinch", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-6-reverse-grinch.jpg" },
-  { name: "Kobe 6 Grinch", category: "Kobe", price: 180, image: "afbeeldingen/kobe-6-grinch.webp" },
-  { name: "Kobe 6 Dodgers", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-6-Dodgers.jpg" },
-  { name: "Kobe 4 Girldad", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-4-Girldad.jpg" },
-  { name: "Kobe 4 Gold Medal", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-4-Gold-Medal.webp" },
-  { name: "Kobe 4 Black Mamba", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-4-Black-Mamba.jpg" },
-  { name: "Kobe 4 Philly", category: "Kobe", price: 180, image: "afbeeldingen/Kobe-4-Philly.jpg" },
-
-  { name: "Nike JA 3 Jelly Bean", category: "JA", price: 130, image: "afbeeldingen/Nike-Ja-3-Jelly-Bean.jpeg" },
-  { name: "Nike JA 3 Max Volume", category: "JA", price: 130, image: "afbeeldingen/Nike-Ja-3-Max-Volume.webp" },
-  { name: "Nike JA 3 Zombie", category: "JA", price: 130, image: "afbeeldingen/Nike-Ja-3-Zombie.jpg" },
-
-  { name: "KD 18 Aunt Pearl", category: "KD", price: 160, image: "afbeeldingen/KD-18-Aunt-Pearl.webp" },
-  { name: "KD 18 Slim Reaper", category: "KD", price: 160, image: "afbeeldingen/KD-18-Slim-Reaper.webp" },
-  { name: "KD 18 Pink Photo Blue", category: "KD", price: 160, image: "afbeeldingen/KD-18-Pink-Photo-Blue.webp" },
-  { name: "KD 18 Washed Purple", category: "KD", price: 160, image: "afbeeldingen/KD-18-Washed purple.webp" },
-
-  { name: "Lebron XXII Limelight", category: "Lebron", price: 190, image: "afbeeldingen/Lebron-XXII-Limelight.webp" },
-  { name: "Lebron XXII Grand Opening", category: "Lebron", price: 190, image: "afbeeldingen/Lebron-XXII-Grand-Opening.webp" },
-
-  { name: "Sabrina 3 Crimson Tint", category: "Sabrina", price: 130, image: "afbeeldingen/Sabrina-3-Crimson-Tint.webp" },
-  { name: "Sabrina 3 Gamer", category: "Sabrina", price: 130, image: "afbeeldingen/Sabrina-3-Gamer.webp" },
-  { name: "Sabrina EP Blueprint", category: "Sabrina", price: 130, image: "afbeeldingen/Sabrina-3-EP-Blueprint.jpeg" },
-
-  { name: "Rigorer BP1 Family Matters", category: "Rigorer", price: 140, image: "afbeeldingen/Rigorer-BP1-Family-Matters.webp" },
-  { name: "Rigorer AR1 Juicy Peach", category: "Rigorer", price: 140, image: "afbeeldingen/Rigorer-AR1-Juicy-Peach.webp" },
-  { name: "Rigorer AR2 15 Flavours", category: "Rigorer", price: 140, image: "afbeeldingen/Rigorer-AR2-15Flavours.webp" },
-  { name: "Rigorer AR2 Snowman", category: "Rigorer", price: 140, image: "afbeeldingen/Rigorer-AR2-Snowman.webp" },
-
-  { name: "Nike GT Cut 2 Hyper Pink", category: "GT-cut", price: 180, image: "afbeeldingen/Nike-GT-CUT2-Hyper-Pink.jpg" },
-  { name: "Nike GT Cut 2 Arike Ogunbowale", category: "GT-cut", price: 180, image: "afbeeldingen/Nike-GT-CUT2-Arike-Ogunbowale.jpg" },
-  { name: "Nike GT Cut 2 Black Phantom", category: "GT-cut", price: 180, image: "afbeeldingen/Nike-GT-CUT2-Black-Phantom.jpg" }
-];
-
 /* ELEMENTEN */
 const productsContainer = document.getElementById("products");
 const searchInput = document.getElementById("searchInput");
@@ -47,6 +10,36 @@ const totalPrice = document.getElementById("totalPrice");
 let currentCategory = "all";
 let currentSearch = "";
 let currentSort = "default";
+
+/* PRODUCTEN UIT DATABASE */
+let products = [];
+
+async function loadProducts() {
+  const data = await runQuery("SELECT * FROM product");
+
+  products = data.map(producten => ({
+    id: producten.id,
+    name: producten.naam,
+    price: Number(producten.prijs),
+    image: producten.image,
+    category: getCategory(product.categorie_id)
+  }));
+
+  showProducts(); // BELANGRIJK
+}
+
+function getCategory(id) {
+  switch (Number(id)) {
+    case 1: return "Kobe";
+    case 2: return "JA";
+    case 3: return "KD";
+    case 4: return "Lebron";
+    case 5: return "Sabrina";
+    case 6: return "Rigorer";
+    case 7: return "GT-cut";
+    default: return "all";
+  }
+}
 
 /* PRODUCTEN TONEN */
 function showProducts() {
@@ -96,7 +89,6 @@ function showProducts() {
   });
 }
 
-
 /* CART */
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -138,7 +130,7 @@ if (sortSelect) {
 }
 
 /* INIT */
-showProducts();
+loadProducts();   // ❗ DIT IS BELANGRIJK (NIET showProducts())
 
 /* WINKELMANDJE */
 function renderCart() {
@@ -167,14 +159,12 @@ function renderCart() {
       </div>
     `;
 
-    /* + */
     card.querySelector(".increase").addEventListener("click", () => {
       shoe.quantity++;
       localStorage.setItem("cart", JSON.stringify(cart));
       renderCart();
     });
 
-    /* - */
     card.querySelector(".decrease").addEventListener("click", () => {
       if (shoe.quantity > 1) {
         shoe.quantity--;
@@ -186,7 +176,6 @@ function renderCart() {
       renderCart();
     });
 
-    /* remove */
     card.querySelector(".remove").addEventListener("click", () => {
       cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -289,9 +278,7 @@ if (checkoutForm) {
   });
 }
 
-
 /* NIEUWE COLLECTIE */
-
 const nieuweCollectie = [
   {
     name: "KD 18 International Blue",
