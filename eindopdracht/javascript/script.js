@@ -93,7 +93,7 @@ function createProductCard(product) {
         <div class="card-content">
             <h3>${product.name}</h3>
             <p class="price">€${product.price}</p>
-            <button class="btn">Koop nu</button>
+            <button class="btn">in winkelmand</button>
         </div>
     `;
 
