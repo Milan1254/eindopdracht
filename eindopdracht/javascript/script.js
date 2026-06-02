@@ -17,15 +17,19 @@ let products = [];
 async function loadProducts() {
   const data = await runQuery("SELECT * FROM producten");
 
-  products = data.map(producten => ({
-    id: producten.id,
-    name: producten.naam,
-    price: Number(producten.prijs),
-    image: producten.afbeelding,
-    category: getCategory(producten.categorie_id)
-  }));
+  products = [];
 
-  showProducts(); 
+  for (const product of data) {
+    products.push({
+      id: product.id,
+      name: product.naam,
+      price: Number(product.prijs),
+      image: product.afbeelding,
+      category: getCategory(product.categorie_id)
+    });
+  }
+
+  showProducts();
 }
 
 function getCategory(id) {
