@@ -100,24 +100,36 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px; /* extra padding voor mobiele weergave */
 }
 
-.overlay {
-  position: absolute;
-  background: #0F172A;
-  top: 0; left: 0; right: 0; bottom: 0;
-}
-
+/* Aangepaste styling voor hero-content om afbeelding links naast tekst te plaatsen */
 .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
+  display: flex; /* Flexbox voor naast elkaar plaatsen */
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px; /* maximale breedte */
+  width: 100%;
+  gap: 0px; /* ruimte tussen afbeelding en tekst */
+}
+
+/* Verwijder de absolute positionering van de afbeelding */
+.hero-img {
+  width: 50%; /* breedte van de afbeelding */
+  max-width: 600px; /* maximale breedte */
+  height: auto;
+  border-radius: 8px;
+}
+
+.hero-text {
+  flex: 1;
 }
 
 .hero-content h2 {
   font-size: 70px;
   color: #38BDF8;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  margin: 0; 
 }
 
 .hero-content p {
@@ -252,6 +264,9 @@ img {
   transition: background-color 0.2s;
 }
 
+.in-winkelmand:hover {
+  background-color: #0EA5E9;
+}
 
 /* BUTTON */
 
@@ -266,6 +281,9 @@ img {
   font-weight: bold;
 }
 
+.btn:hover {
+  background: #0EA5E9;
+}
 
 .checkout-container {
   display: flex;
