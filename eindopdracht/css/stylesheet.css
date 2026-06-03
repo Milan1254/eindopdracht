@@ -419,7 +419,7 @@ footer {
 
 main {
   display: none;
-  max-width: 600px; /* of een andere breedte die je wilt */
+  max-width: 600px; 
   margin: auto;      /* center de main */
   padding: 20px;
 }
