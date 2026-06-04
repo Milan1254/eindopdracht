@@ -34,7 +34,8 @@ const CATEGORIES = {
     4: "Lebron",
     5: "Sabrina",
     6: "Rigorer",
-    7: "GT-cut"
+    7: "GT-cut",
+    8: "Alles"
 };
 
 function getCategory(id) {
