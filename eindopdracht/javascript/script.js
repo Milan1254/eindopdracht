@@ -299,7 +299,7 @@ async function toonProductDetail() {
     }
 
     // Voer query uit om productgegevens op te halen
-    const data = await runQuery(`SELECT * FROM producten WHERE productid = ${id}`);
+    const data = await runQuery(`SELECT prijs, naam, afbeelding, beschrijving FROM producten WHERE productid = ${id}`);
 
     // Als geen product gevonden, toon een melding
     if (data.length === 0) {
