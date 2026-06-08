@@ -170,9 +170,9 @@ nav a {
 
 /* Productkaart */
 .card {
-  background: #1F2937; 
+  background: #FFFF; /* witte achtergrond */
   border-radius: 20px; /* Ronde hoeken */
-  border: 1px solid #374151; /* Rand */
+  border: 1px solid #8c8c8c; /* Rand */
   display: flex; /* Flexbox voor inhoud */
   flex-direction: column;
   align-items: center;
@@ -197,7 +197,7 @@ nav a {
 /* Flexbox centreren en min-height om verschuiving te voorkomen */
 .card h3 {
   font-size: 18px;
-  color: #F8FAFC;
+  color: #38BDF8;
   text-align: center;
   min-height: 50px;
   display: flex;
@@ -302,10 +302,7 @@ nav a {
   font-weight: bold;
   color: #38BDF8;
 }
-.brand-card:hover {
-  background: #38BDF8;
-  color: #F8FAFC;
-}
+
 
 /* CONTACT sectie */
 /* Container met maximale breedte en gecentreerde positionering */
