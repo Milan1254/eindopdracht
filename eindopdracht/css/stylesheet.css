@@ -19,41 +19,40 @@ body {
 
 /* Koppen (h1, h2) */
 h1, h2 {
-  font-family: 'Poppins', serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ALGEMENE tekststijl */
 body p {
   text-align: center;
-  color: #1F2937;
-  margin-top: 20px;  /* Voegt ruimte toe boven het element. Het is de afstand tussen de bovenkant van het element en het element erboven */
+  color: #5980b7;
+  margin-top: 20px;
   margin-bottom: 40px;
-  font-size: 20px; /* Bepaalt de grootte van de tekst in een element. Hoe groter de waarde, hoe groter de tekst */
+  font-size: 20px;
 }
 
 /* Koptekst h2 */
 h2 {
-  text-align: center; /* Tekst wordt gecentreerd binnen het element */
+  text-align: center;
   margin-top: 40px;
   font-size: 36px;
   color: #38BDF8; 
 }
 
 /* HEADER sectie */
-
 header {
   background: #0F172A;
   padding: 20px 40px;
-  display: flex; /* Flexbox voor uitlijning */
-  justify-content: space-between; /* Items verdeeld over beschikbare ruimte */
-  align-items: center; /* Verticale uitlijning */
-  flex-wrap: wrap; /* Items kunnen naar volgende regel verplaatsen bij smalle schermen */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Titel en logo container in header */
 .title-box {
   display: flex;
-  flex-direction: column; /* Zet de flex-items in een verticale kolom */
+  flex-direction: column;
 }
 
 header h1 {
@@ -63,53 +62,52 @@ header h1 {
 
 nav {
   display: flex;
-  gap: 20px; /* Ruimte tussen links */
-  flex-wrap: wrap; /* Zorgt ervoor dat flex-items naar de volgende regel gaan als ze niet op één regel passen */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #F8FAFC;
   text-decoration: none;
   font-size: 16px;
-  position: relative; /* Positioneert het element relatief ten opzichte van zijn normale positie, zodat je het kunt verplaatsen met top, right, bottom, links */
+  position: relative;
 }
 
-
+/* Hero sectie */
 .hero {
-  position: relative; /* Voor positionering binnen */
-  height: 85vh; /* 85% van viewport hoogte */
-  display: flex; /* Flexbox voor centreren */
-  justify-content: center; /* Horizontaal centreren */
-  align-items: center; /* Verticaal centreren */
-  text-align: center; /* Tekstcentrering */
+  position: relative;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 20px;
 }
 
 .hero-content {
-  display: flex; /* Flexbox voor uitlijning */
-  align-items: center; /* Verticaal uitlijnen */
-  justify-content: center; /* Horizontaal uitlijnen */
-  max-width: 1200px; /* Max breedte voor grote schermen */
-  width: 100%; /* Volledige breedte binnen max-width */
-  gap: 0; /* Geen extra spacing tussen items */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 0;
 }
 
 .hero-img {
-  width: 40%; /* Percentage van de container */
-  max-width: 400px; /* Max breedte */
-  height: auto; /* Verhoudingen blijven behouden */
+  width: 40%;
+  max-width: 400px;
+  height: auto;
   border-radius: 8px;
 }
 
 .hero-text {
-  flex: 1; /* Flex-grow om de ruimte te vullen */
+  flex: 1;
 }
 
-
 .hero-content h2 {
-  font-size: 70px; /* Zeer grote tekst */
+  font-size: 70px;
   color: #38BDF8; 
-  margin: 0; /* Reset margin */
+  margin: 0;
 }
 
 .hero-content p {
@@ -128,15 +126,15 @@ nav a {
 .search-bar input,
 #sortSelect {
   padding: 14px;
-  border: none; /* Geen rand */
-  border-radius: 10px; /* Ronde hoeken */
+  border: none;
+  border-radius: 10px;
   font-size: 16px;
-  background: #F8FAFC; /*witte achtergrond */
+  background: #F8FAFC;
   color: #111827;
 }
 
 .search-bar input {
-  width: 320px; /* Breedte van zoekveld */
+  width: 320px;
 }
 
 /* FILTERS sectie */
@@ -159,42 +157,42 @@ nav a {
 }
 
 /* PRODUCTEN grid */
-/* Gebruik van CSS grid met auto-fit en minmax voor responsiviteit */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 320px)); /* Bepaalt dat de grid-kolommen automatisch worden aangepast om zoveel mogelijk 320px brede kolommen te bevatten */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
   justify-content: center;
-  gap: 25px; /* Spacing tussen producten */
+  gap: 25px;
   padding: 40px;
 }
 
 /* Productkaart */
 .card {
-  background: #FFFF; /* witte achtergrond */
-  border-radius: 20px; /* Ronde hoeken */
-  border: 1px solid #8c8c8c; /* Rand */
-  display: flex; /* Flexbox voor inhoud */
+  background: #FFFF;
+  border-radius: 20px;
+  border: 1px solid #8c8c8c;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Spreiding van inhoud */
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Schaduw voor diepte */
-  width: 100%; /* Volledige breedte binnen container */
-  max-width: 320px; /* Max breedte per kaart */
-  height: 420px; /* Vaste hoogte voor een vaste waarde */
-  margin: 0 auto; /* Centraal uitlijnen */
+  justify-content: space-between;
+  padding: 10px; /* Verlaagd van 20px naar 10px */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 320px;
+  /* Verwijderd vaste hoogte, laat zich nu automatisch aanpassen */
+  height: auto; 
+  margin: 0 auto;
 }
 
-
+/* Afbeelding in kaart */
 .card img {
   width: 200px;
   height: 150px;
-  object-fit: contain; /* Zorgt ervoor dat de afbeelding binnen de opgegeven afmetingen past zonder vervorming */
+  object-fit: contain;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Verlaagd van 15px naar 0 */
 }
 
-/* Flexbox centreren en min-height om verschuiving te voorkomen */
+/* Koptekst in kaart */
 .card h3 {
   font-size: 18px;
   color: #38BDF8;
@@ -203,27 +201,29 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 0; /* Verlaagd van 10px naar 0 */
+  margin-top: 0;
 }
 
+/* Prijs in kaart */
 .price {
   font-size: 20px;
   color: #38BDF8;
-  margin: 8px 0;
+  margin: 0; /* Verlaagd van 8px naar 0 */
   font-weight: bold;
 }
 
 /* 'In winkelmand' knop */
 .in-winkelmand {
-  background-color: #38BDF8; /* Blauwe knop */
+  background-color: #38BDF8;
   padding: 12px 20px;
   border-radius: 10px;
   text-align: center;
-  width: 100%; /* Volledige breedte van container */
+  width: 100%;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 0; /* Geen extra ruimte boven */
 }
 
 /* Buttons algemeen */
@@ -258,7 +258,7 @@ nav a {
 /* Responsieve grid van 3 kolommen */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Elke kolom is minimaal 250px breed en past zich aan de ruimte aan */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 50px;
 }
@@ -302,9 +302,7 @@ nav a {
   color: #38BDF8;
 }
 
-
 /* CONTACT sectie */
-/* Container met maximale breedte en gecentreerde positionering */
 .contact-container {
   max-width: 700px;
   margin: 50px auto;
@@ -314,14 +312,12 @@ nav a {
   text-align: center;
 }
 
-/* Koptekst in contact sectie */
 .contact-container h2 {
   color: #38BDF8;
   margin-bottom: 20px;
   font-size: 32px;
 }
 
-/* Paragraaf onder koptekst */
 .contact-container p {
   margin-bottom: 30px;
   color: #CBD5E1;
@@ -334,7 +330,6 @@ nav a {
   gap: 20px;
 }
 
-/* Invoervelden en textarea in contact formulier */
 .contact-form input,
 .contact-form textarea {
   padding: 14px;
@@ -345,7 +340,6 @@ nav a {
   color: #111827;
 }
 
-/* Labels in contact formulier */
 .contact-form label {
   font-weight: bold;
   color: #38BDF8;
@@ -354,7 +348,7 @@ nav a {
 
 /* Foutmelding stijl */
 .error {
-  color: #EF4444; /* Rood voor fouten */
+  color: #EF4444;
   font-size: 14px;
   text-align: left;
 }
@@ -376,7 +370,6 @@ footer {
 }
 
 /* LOCATION sectie */
-/* Flexbox layout voor locatie met centrum uitlijning en wrapping */
 .location-wrapper {
   display: flex;
   justify-content: center;
@@ -386,14 +379,12 @@ footer {
   flex-wrap: wrap;
 }
 
-/* Iframe voor kaart */
 .location iframe {
   width: 600px;
-  max-width: 100%; /* Responsief op kleinere schermen */
+  max-width: 100%;
   border-radius: 15px;
 }
 
-/* Info tekst rondom locatie */
 .location-info {
   max-width: 350px;
 }
@@ -404,11 +395,10 @@ footer {
 }
 
 /* MAIN content stijl */
-/* Verborgen standaard, centraal uitgelijnd met maximale breedte en padding */
 main {
   display: none;
-  max-width: 600px; /* Max breedte */
-  margin: auto; /* Centraal uitlijnen */
+  max-width: 600px;
+  margin: auto;
   padding: 20px;
 }
 
@@ -416,6 +406,6 @@ main {
 #afbeelding {
   display: block;
   margin: 20px auto;
-  max-width: 100%; /* Responsief */
-  height: auto; /* Behoud aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
