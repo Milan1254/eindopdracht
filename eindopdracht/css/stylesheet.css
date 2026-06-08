@@ -19,13 +19,13 @@ body {
 
 /* Koppen (h1, h2) */
 h1, h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
 }
 
 /* ALGEMENE tekststijl */
 body p {
   text-align: center;
-  color: #F8FAFC;
+  color: #1F2937;
   margin-top: 20px;  /* Voegt ruimte toe boven het element. Het is de afstand tussen de bovenkant van het element en het element erboven */
   margin-bottom: 40px;
   font-size: 20px; /* Bepaalt de grootte van de tekst in een element. Hoe groter de waarde, hoe groter de tekst */
@@ -131,7 +131,7 @@ nav a {
   border: none; /* Geen rand */
   border-radius: 10px; /* Ronde hoeken */
   font-size: 16px;
-  background: #F8FAFC; 
+  background: #F8FAFC; /*witte achtergrond */
   color: #111827;
 }
 
@@ -216,7 +216,6 @@ nav a {
 /* 'In winkelmand' knop */
 .in-winkelmand {
   background-color: #38BDF8; /* Blauwe knop */
-  color: #fff; 
   padding: 12px 20px;
   border-radius: 10px;
   text-align: center;
