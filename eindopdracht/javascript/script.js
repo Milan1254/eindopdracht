@@ -77,6 +77,7 @@ function addToCart(product) {
 
     saveCart(cart); // Sla de gewijzigde winkelwagen op
     alert("Toegevoegd aan winkelmand!"); // Laat gebruiker weten dat het product is toegevoegd
+    renderCart(); // Herlaad winkelwagen
 }
 
 /* =========================
@@ -121,7 +122,9 @@ function createProductCard(product) {
 
         <div class="card-content">
             <h3>${product.name}</h3>
-            <p class="price">€${product.price}</p>
+            <p class="price">
+            €${berekenPrijsInclBTW(product.price)}
+            </p>
             <button class="btn">In winkelmand</button>
         </div>
     `;
@@ -206,7 +209,9 @@ if (sortSelect) {
    WINKELMAND
    Functie om winkelwagen weer te geven en bij te werken.
 ========================= */
-
+function berekenPrijsInclBTW(prijsExcl) {
+    return Math.round(prijsExcl * 1.21 * 100) / 100;
+}
 function renderCart() {
     if (!cartItems) return; // Als winkelwagen element niet bestaat, stop
 
@@ -217,9 +222,9 @@ function renderCart() {
 
     // Loop door alle items in de winkelwagen
     cart.forEach((product, index) => {
-        total += product.price * product.quantity; // Voeg prijs * hoeveelheid toe aan totaal
+        const prijsIncl = berekenPrijsInclBTW(product.price);
+        total += parseFloat(prijsIncl) * product.quantity; // Correcte berekening
 
-        // Maak een kaart voor het item
         const card = document.createElement("div");
         card.className = "card";
 
@@ -228,7 +233,7 @@ function renderCart() {
             <img src="${product.image}" alt="${product.name}">
             <div class="card-content">
                 <h3>${product.name}</h3>
-                <p>€${product.price} x ${product.quantity}</p>
+                <p>€${prijsIncl} x ${product.quantity}</p>
 
                 <button class="minus">-</button>
                 <button class="plus">+</button>
@@ -267,7 +272,7 @@ function renderCart() {
 
     // Update het totaalbedrag
     if (totalPrice) {
-        totalPrice.textContent = "Totaal: €" + total;
+        totalPrice.textContent = "Totaal: €" + total.toFixed(2);
     }
 }
 
@@ -335,9 +340,9 @@ async function toonProductDetail() {
 
 // Array met nieuwe collectie producten
 const nieuweCollectie = [
-    { id: 1001, name: "KD 18 International Blue", price: 160, image: "afbeeldingen/KD-18-International-Blue.webp" },
-    { id: 1002, name: "Nike Book 2 Rising", price: 150, image: "afbeeldingen/BOOK-2-Rising.webp" },
-    { id: 1003, name: "Nike Book 2 Sundial", price: 150, image: "afbeeldingen/Book-2-Sundial.webp" }
+    { id: 1001, name: "KD 18 International Blue", price: 132.23, image: "afbeeldingen/KD-18-International-Blue.webp" },
+    { id: 1002, name: "Nike Book 2 Rising", price: 132.23, image: "afbeeldingen/BOOK-2-Rising.webp" },
+    { id: 1003, name: "Nike Book 2 Sundial", price: 132.23, image: "afbeeldingen/Book-2-Sundial.webp" }
 ];
 
 // Als container voor nieuwe collectie bestaat, voeg hier de producten aan toe
@@ -363,7 +368,7 @@ if (window.location.pathname.includes("product.html")) {
     toonProductDetail();
 }
 
-// producten.js
+// overige functies
 // Functies die de gegevens ophalen en in de HTML zetten.
 // Heeft app.js nodig (voor runQuery).
 
@@ -389,4 +394,8 @@ async function toonProducten() {
         item.appendChild(link);
         lijst.appendChild(item);
     }
+}
+
+function berekenPrijsInclBTW(prijsExcl) {
+    return (prijsExcl * 1.21).toFixed(2);
 }
