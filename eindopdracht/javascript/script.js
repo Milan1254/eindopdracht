@@ -390,30 +390,3 @@ async function toonProducten() {
         lijst.appendChild(item);
     }
 }
-
-// toonProductDetail: vult de velden op product.html met EEN product.
-async function toonProductDetail() {
-    // Het id uit de URL halen, bijvoorbeeld product.html?id=3
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-
-    // Een product ophalen op basis van het id
-    const producten = await runQuery("SELECT * FROM producten WHERE productid = " + id);
-    const product = producten[0];   // runQuery geeft een array terug
-
-    if (!product) {
-        document.getElementById("naam").textContent = "Product niet gevonden";
-        return;
-    }
-
-    document.getElementById("naam").textContent = product.naam;
-    document.getElementById("prijs").textContent = product.prijs;
-
-    // De naam van de categorie apart ophalen
-    const categorieen = await runQuery(
-        "SELECT * FROM categorie WHERE id = " + product.categorie_id
-    );
-    if (categorieen[0]) {
-        document.getElementById("categorie").textContent = categorieen[0].naam;
-    }
-}
