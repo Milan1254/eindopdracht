@@ -3,27 +3,39 @@
    Hier worden referenties opgeslagen naar HTML-elementen zodat je er later mee kunt werken.
 ========================= */
 
-const productsContainer = document.getElementById("products"); // Container voor productkaarten op de homepage
-const searchInput = document.getElementById("searchInput"); // Zoekveld voor filteren op naam
-const sortSelect = document.getElementById("sortSelect"); // Dropdown voor sorteren (bijv. laag-hoog of hoog-laag)
+// Container voor productkaarten op de productenpagina
+const productsContainer = document.getElementById("products");
+// Zoekveld voor filteren op naam
+const searchInput = document.getElementById("searchInput");
+// Dropdown voor sorteren (bijv. laag-hoog of hoog-laag)
+const sortSelect = document.getElementById("sortSelect");
 
-const cartItems = document.getElementById("cartItems"); // Container voor winkelwagen items
-const totalPrice = document.getElementById("totalPrice"); // Element voor tonen van totaalbedrag
+// Container voor winkelwagenitems
+const cartItems = document.getElementById("cartItems");
+// Element voor tonen van totaalbedrag
+const totalPrice = document.getElementById("totalPrice");
 
-const contactForm = document.getElementById("contactForm"); // Contactformulier (niet verder gebruikt in deze code)
-const checkoutForm = document.getElementById("checkoutForm"); // Afrekenformulier (ook niet verder gebruikt in deze code)
+// Contactformulier element
+const contactForm = document.getElementById("contactForm");
+// Afrekenformulier element
+const checkoutForm = document.getElementById("checkoutForm");
 
-const newCollectionContainer = document.getElementById("newCollectionContainer"); // Container voor nieuwe collectie producten
+// Container voor nieuwe collectie producten
+const newCollectionContainer = document.getElementById("newCollectionContainer");
 
 /* =========================
    STATE
    Variabelen die de huidige status van de app bijhouden.
 ========================= */
 
-let products = []; // Array waarin alle geladen producten worden opgeslagen
-let currentCategory = "all"; // Huidige geselecteerde categorie voor filtering
-let currentSearch = ""; // Huidige zoekterm
-let currentSort = "default"; // Huidige sorteervolgorde
+// Array waarin alle geladen producten worden opgeslagen
+let products = [];
+// Huidige geselecteerde categorie voor filtering
+let currentCategory = "all";
+// Huidige zoekterm
+let currentSearch = "";
+// Huidige sorteervolgorde
+let currentSort = "default";
 
 /* =========================
    CATEGORIEËN
@@ -50,7 +62,7 @@ function getCategory(id) {
    Functies voor het opslaan, ophalen en bijwerken van de winkelwagen.
 ========================= */
 
-// Haalt de winkelwagen op uit localStorage of geeft lege array terug als die er niet is
+// Haalt de winkelwagen op uit localStorage of geeft een lege array terug als die er niet is
 function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
 }
@@ -62,22 +74,22 @@ function saveCart(cart) {
 
 // Voegt een product toe aan de winkelwagen
 function addToCart(product) {
-    const cart = getCart(); // Haal huidige winkelwagen op
+    const cart = getCart(); // Huidige winkelwagen ophalen
 
-    // Kijk of product al in de winkelwagen zit
+    // Kijk of het product al in de winkelwagen zit
     const existing = cart.find(item => item.id === product.id);
 
     if (existing) {
         // Als het product al bestaat, verhoog de hoeveelheid
         existing.quantity++;
     } else {
-        // Anders voeg nieuw product toe met hoeveelheid 1
+        // Anders voeg het product toe met hoeveelheid 1
         cart.push({ ...product, quantity: 1 });
     }
 
-    saveCart(cart); // Sla de gewijzigde winkelwagen op
-    alert("Toegevoegd aan winkelmand!"); // Laat gebruiker weten dat het product is toegevoegd
-    renderCart(); // Herlaad winkelwagen
+    saveCart(cart); // Bewaar de gewijzigde winkelwagen
+    alert("Toegevoegd aan winkelmand!"); // Gebruiker informeren
+    renderCart(); // Winkelwagen opnieuw tonen
 }
 
 /* =========================
@@ -87,10 +99,10 @@ function addToCart(product) {
 
 async function loadProducts() {
     try {
-        // Voer een query uit om alle producten op te halen
+        // Query om alle producten op te halen uit database
         const data = await runQuery("SELECT * FROM producten");
 
-        // Zet de data om naar interne array met juiste structuur
+        // Data omzetten naar gewenste structuur en opslaan in 'products' array
         products = data.map(product => ({
             id: product.productid,
             name: product.naam,
@@ -99,7 +111,7 @@ async function loadProducts() {
             category: getCategory(product.categorie_id)
         }));
 
-        showProducts(); // Laat de producten zien
+        showProducts(); // Producten tonen op pagina
     } catch (err) {
         console.error("Fout bij laden producten:", err); // Foutafhandeling
     }
@@ -112,14 +124,13 @@ async function loadProducts() {
 
 function createProductCard(product) {
     const card = document.createElement("div");
-    card.className = "card"; // Geef de kaart een CSS-klasse voor styling
+    card.className = "card"; // CSS-klasse voor styling
 
     // HTML structuur van de productkaart
     card.innerHTML = `
         <a href="product.html?id=${product.id}">
             <img src="${product.image}" alt="${product.name}">
         </a>
-
         <div class="card-content">
             <h3>${product.name}</h3>
             <p class="price">
@@ -129,12 +140,12 @@ function createProductCard(product) {
         </div>
     `;
 
-    // Voeg event listener toe aan knop om product toe te voegen aan winkelwagen
+    // Event listener voor knop 'In winkelmand' toevoegen
     card.querySelector(".btn").addEventListener("click", () => {
         addToCart(product);
     });
 
-    return card; // Geef de gemaakte kaart terug
+    return card; // De gemaakte kaart teruggeven
 }
 
 /* =========================
@@ -145,7 +156,7 @@ function createProductCard(product) {
 function showProducts() {
     if (!productsContainer) return; // Als container niet bestaat, stop
 
-    let filtered = [...products]; // Maak kopie van alle producten
+    let filtered = [...products]; // Kopie maken van alle producten
 
     // Filter op categorie
     filtered = filtered.filter(p =>
@@ -157,20 +168,20 @@ function showProducts() {
         p.name.toLowerCase().includes(currentSearch)
     );
 
-    // Sorteer op prijs, laag naar hoog
+    // Sorteren op prijs laag naar hoog
     if (currentSort === "low-high") {
         filtered.sort((a, b) => a.price - b.price);
     }
 
-    // Sorteer op prijs, hoog naar laag
+    // Sorteren op prijs hoog naar laag
     if (currentSort === "high-low") {
         filtered.sort((a, b) => b.price - a.price);
     }
 
-    // Leeg de container voordat we nieuwe kaarten toevoegen
+    // Leeg de container voordat nieuwe kaarten worden toegevoegd
     productsContainer.innerHTML = "";
 
-    // Maak voor elk product een kaart en voeg toe aan container
+    // Voor elk product een kaart maken en aan container toevoegen
     filtered.forEach(product => {
         productsContainer.appendChild(createProductCard(product));
     });
@@ -185,22 +196,22 @@ function showProducts() {
 document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         currentCategory = btn.dataset.category; // Update huidige categorie
-        showProducts(); // Herlaad producten met nieuwe filter
+        showProducts(); // Producten herladen met nieuwe filter
     });
 });
 
 // Event listener voor zoekveld
 if (searchInput) {
     searchInput.addEventListener("input", () => {
-        currentSearch = searchInput.value.toLowerCase(); // Update zoekterm
-        showProducts(); // Filter en toon producten
+        currentSearch = searchInput.value.toLowerCase(); // Zoekterm bijwerken
+        showProducts(); // Producten filteren en tonen
     });
 }
 
 // Event listener voor sorteerkeuzelijst
 if (sortSelect) {
     sortSelect.addEventListener("change", () => {
-        currentSort = sortSelect.value; // Update sorteervolgorde
+        currentSort = sortSelect.value; // Sorteervolgorde bijwerken
         showProducts(); // Herladen met nieuwe sortering
     });
 }
@@ -209,68 +220,71 @@ if (sortSelect) {
    WINKELMAND
    Functie om winkelwagen weer te geven en bij te werken.
 ========================= */
+
+// Bereken prijs inclusief 21% BTW
 function berekenPrijsInclBTW(prijsExcl) {
     return Math.round(prijsExcl * 1.21 * 100) / 100;
 }
+
+// Render de winkelwagen in de pagina
 function renderCart() {
     if (!cartItems) return; // Als winkelwagen element niet bestaat, stop
 
-    const cart = getCart(); // Haal winkelwagen op
-    cartItems.innerHTML = ""; // Leeg de container
+    const cart = getCart(); // Winkelwagen ophalen
+    cartItems.innerHTML = ""; // Container leegmaken
 
-    let total = 0; // Variabele voor totaalbedrag
+    let total = 0; // Totaalbedrag initialiseren
 
     // Loop door alle items in de winkelwagen
     cart.forEach((product, index) => {
         const prijsIncl = berekenPrijsInclBTW(product.price);
-        total += parseFloat(prijsIncl) * product.quantity; // Correcte berekening
+        total += parseFloat(prijsIncl) * product.quantity; // Bedrag optellen
 
         const card = document.createElement("div");
         card.className = "card";
 
-        // HTML structuur voor item in winkelwagen
+        // HTML voor winkelwagenitem
         card.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
             <div class="card-content">
                 <h3>${product.name}</h3>
                 <p>€${prijsIncl} x ${product.quantity}</p>
-
                 <button class="minus">-</button>
                 <button class="plus">+</button>
                 <button class="remove">Verwijder</button>
             </div>
         `;
 
-        // Event handler voor '+' knop
+        // Event voor '+' knop
         card.querySelector(".plus").addEventListener("click", () => {
             cart[index].quantity++;
             saveCart(cart);
-            renderCart(); // Herlaad winkelwagen
+            renderCart(); // Winkelwagen opnieuw tonen
         });
 
-        // Event handler voor '-' knop
+        // Event voor '-' knop
         card.querySelector(".minus").addEventListener("click", () => {
             if (cart[index].quantity > 1) {
                 cart[index].quantity--;
             } else {
-                cart.splice(index, 1); // Verwijder item als hoeveelheid 0 wordt
+                cart.splice(index, 1); // Verwijder item als qty 0
             }
             saveCart(cart);
-            renderCart(); // Herlaad winkelwagen
+            renderCart();
         });
 
-        // Event handler voor 'verwijder' knop
+        // Event voor 'Verwijder' knop
         card.querySelector(".remove").addEventListener("click", () => {
             cart.splice(index, 1); // Verwijder item uit array
             saveCart(cart);
-            renderCart(); // Herlaad winkelwagen
+            renderCart();
         });
 
-        // Voeg de kaart toe aan de winkelwagen container
+        // Voeg de kaart toe aan de winkelwagencontainer
         cartItems.appendChild(card);
     });
 
-    // Update het totaalbedrag
+    // Totaalbedrag updaten
     if (totalPrice) {
         totalPrice.textContent = "Totaal: €" + total.toFixed(2);
     }
@@ -282,17 +296,17 @@ function renderCart() {
 ========================= */
 
 async function toonProductDetail() {
-    // Haal het product ID uit de URL
+    // Haal product-ID uit URL
     const id = new URLSearchParams(window.location.search).get("id");
     if (!id) return; // Stop als geen ID
 
-    // Functie om query uit te voeren (gebruikt API)
+    // Functie om query uit te voeren (API call)
     async function runQuery(sql) {
         try {
             const response = await fetch("http://localhost/eindopdracht/eindopdracht/api.php?sql=" + encodeURIComponent(sql));
             const result = await response.json();
             if (result.success) {
-                return result.data; // Return de data als query succesvol was
+                return result.data; // Retourneer data bij succes
             } else {
                 console.error("SQL fout:", result.error);
                 return [];
@@ -303,39 +317,45 @@ async function toonProductDetail() {
         }
     }
 
-    // Voer query uit om productgegevens op te halen
+    // Haal productgegevens op uit database
     const data = await runQuery(`SELECT prijs, naam, afbeelding, beschrijving FROM producten WHERE productid = ${id}`);
 
-    // Als geen product gevonden, toon een melding
+    // Als geen data gevonden, melding tonen
     if (data.length === 0) {
         document.body.innerHTML = "<p>Product niet gevonden</p>";
         document.body.style.display = "block"; // Zorg dat body zichtbaar is
         return;
     }
 
-    const product = data[0]; // Neem het eerste (en enige) resultaat
+    const product = data[0]; // Eerste resultaat gebruiken
 
-    // Maak main zichtbaar nadat gegevens geladen zijn
+    // Main zichtbaar maken
     const main = document.querySelector("main");
     if (main) {
         main.style.display = "block";
     }
 
-    // Vul de velden in met productgegevens
+    // Velden vullen met productgegevens
     const naam = document.getElementById("naam");
     const prijs = document.getElementById("prijs");
     const afbeelding = document.getElementById("afbeelding");
     const beschrijving = document.getElementById("beschrijving");
 
     if (naam) naam.textContent = product.naam;
-    if (prijs) prijs.textContent = "€" + product.prijs;
+
+    // Prijs inclusief BTW tonen
+    if (prijs) {
+        const prijsIncl = berekenPrijsInclBTW(parseFloat(product.prijs));
+        prijs.textContent = "€" + prijsIncl;
+    }
+
     if (afbeelding) afbeelding.src = product.afbeelding;
     if (beschrijving) beschrijving.textContent = product.beschrijving || "Geen beschrijving beschikbaar.";
 }
 
 /* =========================
    NIEUWE COLLECTIE
-   Een array met nieuwe producten en deze worden zichtbaar gemaakt.
+   Een array met nieuwe producten en deze zichtbaar maken.
 ========================= */
 
 // Array met nieuwe collectie producten
@@ -361,7 +381,7 @@ if (productsContainer) {
     loadProducts(); // Laad producten bij pagina laden
 }
 
-renderCart(); // weergeven van de winkelwagen
+renderCart(); // Winkelwagen tonen
 
 // Als je op product.html bent, laad dan de productdetails
 if (window.location.pathname.includes("product.html")) {
@@ -396,6 +416,7 @@ async function toonProducten() {
     }
 }
 
+// Herbereken prijs inclusief BTW
 function berekenPrijsInclBTW(prijsExcl) {
-    return (prijsExcl * 1.21).toFixed(2);
+    return (prijsExcl * 1.21).toFixed(2); // Afronden op 2 decimalen
 }
