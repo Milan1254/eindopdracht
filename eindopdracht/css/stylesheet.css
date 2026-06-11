@@ -57,7 +57,7 @@ header {
 
 header h1 {
   color: #38BDF8;
-  font-size: 32px;
+  font-size: 40px;
 }
 
 nav {
@@ -105,7 +105,7 @@ nav a {
 }
 
 .hero-content h2 {
-  font-size: 70px;
+  font-size: 50px;
   color: #38BDF8; 
   margin: 0;
 }
@@ -175,7 +175,7 @@ nav a {
   align-items: center;
   justify-content: space-between;
   padding: 10px; 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Voeg een doorzichtige schaduw onder het element toe voor diepte-effect */
   width: 100%;
   max-width: 320px;
   /* Verwijderd vaste hoogte, laat zich nu automatisch aanpassen */
@@ -257,6 +257,8 @@ nav a {
 
 /* Responsieve grid van 3 kolommen */
 .grid-3 {
+  /* Gebruik CSS Grid om een responsieve lay-out te maken 
+  met automatisch aanpasbare kolommen van minimaal 250px breed */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
@@ -286,6 +288,8 @@ nav a {
 
 /* Grid voor merkkaarten */
 .brand-grid {
+  /* Gebruik CSS Grid om een responsieve lay-out te maken 
+  met automatisch aanpasbare kolommen van minimaal 200px breed */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 25px;
@@ -408,4 +412,77 @@ main {
   margin: 20px auto;
   max-width: 100%;
   height: auto;
+}
+
+/* Basis responsive instellingen voor tekst en containers */
+body {
+  padding: 0 20px;
+}
+
+/* Algemene koppen aanpassen voor kleinere schermen */
+@media (max-width: 768px) {
+  /* Koppen kleiner maken */
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  /* Hero sectie tekst kleiner maken */
+  .hero-content h2 {
+    font-size: 30px;
+  }
+  /* Verklein de product kaarten */
+  .card {
+    max-width: 100%;
+  }
+  /* Verklein de grid voor producten en merken */
+  .products, .brand-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  /* Verbeter de layout van de locatie iframe en info */
+  .location-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .location iframe {
+    width: 100%;
+  }
+  .location-info {
+    max-width: 100%;
+  }
+  /* Header en navigatie aanpassen voor mobiel */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+/* Extra media voor zeer kleine schermen */
+@media (max-width: 480px) {
+  /* Nog kleinere tekstgroottes */
+  body p {
+    font-size: 16px;
+  }
+  /* Hero tekst kleiner maken */
+  .hero-content h2 {
+    font-size: 24px;
+  }
+  /* Product kaarten aanpassen */
+  .card {
+    padding: 5px;
+  }
+  /* Buttons en input velden aanpassen */
+  .search-bar input,
+  #sortSelect {
+    width: 100%;
+  }
+  /* Footer padding aanpassen */
+  footer {
+    padding: 20px;
+  }
 }
