@@ -222,7 +222,7 @@ nav a {
   font-size: 20px; /* Grootte */
   color: #38BDF8; /* Blauw */
   margin: 0; /* Geen marge */
-  font-weight: bold; /* Vet */
+  font-weight: bold; /* dik lettertype is */
 }
 
 /* In winkelmand knop */
@@ -270,7 +270,8 @@ nav a {
 /* GRID 3 kolommen */
 .grid-3 {
   display: grid; /* Grid */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsief */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  /* 3 kolommen van minimaal 250px, past zich aan bij kleinere schermen */
   gap: 30px; /* Ruimte */
   margin-top: 50px; /* Bovenruimte */
 }
@@ -301,7 +302,8 @@ nav a {
 /* Brand grid */
 .brand-grid {
   display: grid; /* Grid */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsief */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* 3 kolommen van minimaal 200px, past zich aan bij kleinere schermen */
   gap: 25px; /* Ruimte */
   margin-top: 50px; /* Bovenruimte */
 }
