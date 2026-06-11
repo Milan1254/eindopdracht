@@ -138,7 +138,7 @@ function createProductCard(product) {
             </p>
             <button class="btn">In winkelmand</button>
         </div>
-    `;
+    ` ;
 
     // Event listener voor knop 'In winkelmand' toevoegen
     card.querySelector(".btn").addEventListener("click", () => {
@@ -267,8 +267,8 @@ function renderCart() {
             if (cart[index].quantity > 1) {
                 cart[index].quantity--;
             } else {
-                cart.splice(index, 1); // Verwijder item als qty 0
-            }
+                cart.splice(index, 1); // splice() verwijdert, voegt toe of vervangt elementen in een array.
+            }                         // Haal het product uit de cart als aantal 0 wordt
             saveCart(cart);
             renderCart();
         });

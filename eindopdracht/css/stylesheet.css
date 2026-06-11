@@ -1,488 +1,507 @@
-/* Algemene box-sizing instellingen */
+/* Algemene box-sizing instellingen: zorgt dat padding en border niet extra breedte toevoegen */
 html {
-  -webkit-box-sizing: border-box; /* Chrome, Safari, Opera */
-  -moz-box-sizing: border-box;    /* Firefox */
-  box-sizing: border-box;         /* Moderne browsers */
+  -webkit-box-sizing: border-box; /* Chrome, Safari, Opera: box-sizing fix */
+  -moz-box-sizing: border-box;    /* Firefox: box-sizing fix */
+  box-sizing: border-box;         /* Standaard moderne browsers */
 }
+
+/* Alle elementen en pseudo-elementen erven dezelfde box-sizing */
 *, *:before, *:after {
-  -webkit-box-sizing: inherit; /* Erfenis voor alle elementen en pseudo-elementen */
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit; /* Erft box-sizing van html */
+  -moz-box-sizing: inherit;    /* Firefox erft waarde */
+  box-sizing: inherit;         /* Moderne browsers */
 }
 
-/* Body styling */
+/* BODY: basis styling van de hele pagina */
 body {
-  background: #111827; 
-  color: #F8FAFC;  
-  font-family: 'Poppins', sans-serif;
+  background: #111827; /* Donkere achtergrondkleur */
+  color: #F8FAFC;      /* Witte/lichtgrijze tekstkleur */
+  font-family: 'Poppins', sans-serif; /* Lettertype van de site */
 }
 
-/* Koppen (h1, h2) */
+/* Alle h1 en h2 koppen */
 h1, h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Zelfde font als body */
 }
 
-/* ALGEMENE tekststijl */
+/* Algemene paragrafen */
 body p {
-  text-align: center;
-  color: #5980b7;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  font-size: 20px;
+  text-align: center;   /* Tekst centreren */
+  color: #5980b7;       /* Blauwe tekstkleur */
+  margin-top: 20px;     /* Ruimte boven tekst */
+  margin-bottom: 40px;  /* Ruimte onder tekst */
+  font-size: 20px;      /* Tekstgrootte */
 }
 
-/* Koptekst h2 */
+/* h2 koppen styling */
 h2 {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 36px;
-  color: #38BDF8; 
+  text-align: center;   /* Centraal uitlijnen */
+  margin-top: 40px;     /* Ruimte boven */
+  font-size: 36px;      /* Grote tekst */
+  color: #38BDF8;       /* Lichtblauw */
 }
 
-/* HEADER sectie */
+/* HEADER balk */
 header {
-  background: #0F172A;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  background: #0F172A;       /* Donkere achtergrond header */
+  padding: 20px 40px;        /* Ruimte binnen header */
+  display: flex;             /* Flexbox layout */
+  justify-content: space-between; /* Links en rechts uit elkaar */
+  align-items: center;       /* Verticaal centreren */
+  flex-wrap: wrap;           /* Wrap bij kleine schermen */
+                            /* Laat items op een nieuwe regel gaan als het niet meer past */
 }
 
-/* Titel en logo container in header */
+/* Titel box in header */
 .title-box {
-  display: flex;
-  flex-direction: column;
+  display: flex;             /* Flexbox */
+  flex-direction: column;    /* Onder elkaar zetten */
 }
 
+/* H1 in header */
 header h1 {
-  color: #38BDF8;
-  font-size: 40px;
+  color: #38BDF8; /* Lichtblauwe titel */
+  font-size: 40px; /* Grote titel */
 }
 
+/* Navigatie menu */
 nav {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: flex;      /* Horizontale rij */
+  gap: 20px;          /* Ruimte tussen links */
+  flex-wrap: wrap;    /* Wrap bij kleine schermen */
 }
 
+/* Navigatie links */
 nav a {
-  color: #F8FAFC;
-  text-decoration: none;
-  font-size: 16px;
-  position: relative;
+  color: #F8FAFC;       /* Witte links */
+  text-decoration: none; /* Haalt de onderstreping van links weg */
+  font-size: 16px;      /* Tekstgrootte */
 }
 
-/* Hero sectie */
+/* HERO sectie (grote bovenkant pagina) */
 .hero {
-  position: relative;
-  height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+  position: relative;  /* Voor positionering binnen hero */
+  height: 85vh;        /* 85% van schermhoogte */
+  display: flex;       /* Flexbox */
+  justify-content: center; /* Horizontaal centreren */
+  align-items: center; /* Verticaal centreren */
+  text-align: center;  /* Tekst centreren */
+  padding: 20px;       /* Binnenruimte */
 }
 
+/* Hero content container */
 .hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  width: 100%;
-  gap: 0;
+  display: flex;       /* Flexbox layout */
+  align-items: center; /* Verticaal centreren */
+  justify-content: center; /* Horizontaal centreren */
+  max-width: 1200px;   /* Maximale breedte */
+  width: 100%;         /* Volledige breedte */
+  gap: 0;              /* Geen ruimte tussen items */
 }
 
+/* Hero afbeelding */
 .hero-img {
-  width: 40%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 8px;
+  width: 40%;          /* 40% breedte */
+  max-width: 400px;    /* Max breedte */
+  height: auto;        /* Hoogte automatisch */
+  border-radius: 8px;  /* Afgeronde hoeken */
 }
 
+/* Hero tekst */
 .hero-text {
-  flex: 1;
+  flex: 1; /* Neemt overgebleven ruimte */
 }
 
+/* Hero titel */
 .hero-content h2 {
-  font-size: 50px;
-  color: #38BDF8; 
-  margin: 0;
+  font-size: 50px;  /* Grote titel */
+  color: #38BDF8;   /* Lichtblauw */
+  margin: 0;        /* Geen marge */
 }
 
+/* Hero paragraaf */
 .hero-content p {
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: 20px;   /* Tekstgrootte */
+  margin-bottom: 30px; /* Ruimte onder tekst */
 }
 
+/* Zoekbalk container */
 .search-bar {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 15px;
-  flex-wrap: wrap; 
+  display: flex;        /* Flexbox */
+  justify-content: center; /* Centreren */
+  margin-top: 30px;     /* Ruimte boven */
+  gap: 15px;            /* Ruimte tussen items */
+  flex-wrap: wrap;      /* Wrap op mobiel */
 }
 
+/* Input + dropdown styling */
 .search-bar input,
 #sortSelect {
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  background: #F8FAFC;
-  color: #111827;
+  padding: 14px;         /* Binnenruimte */
+  border: none;          /* Geen rand */
+  border-radius: 10px;   /* Afgeronde hoeken */
+  font-size: 16px;       /* Tekstgrootte */
+  background: #F8FAFC;   /* Witte achtergrond */
+  color: #111827;        /* Donkere tekst */
 }
 
+/* Zoek input breedte */
 .search-bar input {
-  width: 320px;
+  width: 320px; /* Vaste breedte */
 }
 
-/* FILTERS sectie */
+/* FILTER sectie */
 .filters {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-  flex-wrap: wrap;
+  display: flex;        /* Flexbox */
+  justify-content: center; /* Centreren */
+  gap: 15px;            /* Ruimte tussen knoppen */
+  margin-top: 30px;      /* Ruimte boven */
+  flex-wrap: wrap;       /* Wrap bij klein scherm */
 }
 
 /* Filter knoppen */
 .filter-btn {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #38BDF8;
-  color: #F8FAFC;
-  font-weight: bold;
+  padding: 12px 20px;    /* Binnenruimte */
+  border: none;          /* Geen rand */
+  border-radius: 10px;   /* Afgerond */
+  background: #38BDF8;   /* Blauw */
+  color: #F8FAFC;        /* Witte tekst */
+  font-weight: bold;      /* Vetgedrukt */
 }
 
-/* PRODUCTEN grid */
+/* PRODUCT grid */
 .products {
-  display: grid;
+  display: grid; /* Grid layout */
   grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
-  justify-content: center;
-  gap: 25px;
-  padding: 40px;
+ /* 3 kolommen van minimaal 320px, past zich aan bij kleinere schermen */
+  justify-content: center; /* Centreren */
+  gap: 25px; /* Ruimte tussen items */
+  padding: 40px; /* Binnenruimte */
 }
 
-/* Productkaart */
+/* PRODUCT kaart */
 .card {
-  background: #FFFF;
-  border-radius: 20px;
-  border: 1px solid #8c8c8c;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px; 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Voeg een doorzichtige schaduw onder het element toe voor diepte-effect */
-  width: 100%;
-  max-width: 320px;
-  /* Verwijderd vaste hoogte, laat zich nu automatisch aanpassen */
-  height: auto; 
-  margin: 0 auto;
+  background: #FFFF; /* Witte kaart */
+  border-radius: 20px; /* Ronde hoeken */
+  border: 1px solid #8c8c8c; /* Grijze rand */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Onder elkaar */
+  align-items: center; /* Centreren */
+  justify-content: space-between; 
+  /* Verdeel de items gelijkmatig over de container, met de eerste links en de laatste rechts, en gelijke ruimte ertussen*/
+  padding: 10px; /* Binnenruimte */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Schaduw */
+  width: 100%; /* Volledige breedte */
+  max-width: 320px; /* Max breedte */
+  height: auto; /* Automatische hoogte */
+  margin: 0 auto; /* Centreren */
 }
 
-/* Afbeelding in kaart */
+/* Product afbeelding */
 .card img {
-  width: 200px;
-  height: 150px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin-bottom: 0; 
+  width: 200px; /* Breedte */
+  height: 150px; /* Hoogte */
+  object-fit: contain; /* Niet vervormen */
+  border-radius: 10px; /* Ronde hoeken */
 }
 
-/* Koptekst in kaart */
+/* Product titel */
 .card h3 {
-  font-size: 18px;
-  color: #38BDF8;
-  text-align: center;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0; 
-  margin-top: 0;
+  font-size: 18px; /* Tekstgrootte */
+  color: #38BDF8; /* Blauw */
+  text-align: center; /* Centreren */
+  min-height: 50px; /* Minimale hoogte */
+  display: flex; /* Flexbox */
+  align-items: center; /* Verticaal centreren */
+  justify-content: center; /* Horizontaal */
+  margin: 0; /* Geen marge */
 }
 
-/* Prijs in kaart */
+/* Prijs */
 .price {
-  font-size: 20px;
-  color: #38BDF8;
-  margin: 0; 
-  font-weight: bold;
+  font-size: 20px; /* Grootte */
+  color: #38BDF8; /* Blauw */
+  margin: 0; /* Geen marge */
+  font-weight: bold; /* Vet */
 }
 
-/* 'In winkelmand' knop */
+/* In winkelmand knop */
 .in-winkelmand {
-  background-color: #38BDF8;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 0; /* Geen extra ruimte boven */
+  background-color: #38BDF8; /* Blauw */
+  padding: 12px 20px; /* Ruimte */
+  border-radius: 10px; /* Ronde hoeken */
+  width: 100%; /* Volledige breedte */
+  font-size: 16px; /* Tekst */
+  font-weight: bold; /* Vet */
+  cursor: pointer; /* Hand cursor */
 }
 
-/* Buttons algemeen */
+/* Algemene knop */
 .btn {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  background: #38BDF8;
-  color: #F8FAFC;
-  font-size: 16px;
-  font-weight: bold;
+  width: 100%; /* Vol breed */
+  padding: 14px; /* Ruimte */
+  border: none; /* Geen rand */
+  border-radius: 10px; /* Ronde hoeken */
+  background: #38BDF8; /* Blauw */
+  color: #F8FAFC; /* Wit */
+  font-size: 16px; /* Tekst */
+  font-weight: bold; /* Vet */
 }
 
-/* CHECKOUT container en button */
+/* Checkout container */
 .checkout-container {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
+  display: flex; /* Flex */
+  justify-content: center; /* Centreren */
+  margin: 40px 0; /* Ruimte boven/onder */
 }
+
+/* Checkout knop */
 .checkout-container .btn {
-  width: 250px;
-  text-align: center;
-  text-decoration: none;
+  width: 250px; /* Breedte knop */
+  text-align: center; /* Tekst centreren */
+  text-decoration: none; /* Geen underline */
 }
 
 /* HOME sectie */
 .home-section {
-  padding: 80px 40px;
+  padding: 80px 40px; /* Ruimte */
 }
 
-/* Responsieve grid van 3 kolommen */
+/* GRID 3 kolommen */
 .grid-3 {
-  /* Gebruik CSS Grid om een responsieve lay-out te maken 
-  met automatisch aanpasbare kolommen van minimaal 250px breed */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  display: grid; /* Grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsief */
+  gap: 30px; /* Ruimte */
+  margin-top: 50px; /* Bovenruimte */
 }
 
+/* Feature box */
 .feature-box {
-  background: #1F2937; 
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
+  background: #1F2937; /* Donkergrijs */
+  padding: 40px; /* Ruimte */
+  border-radius: 20px; /* Ronde hoeken */
+  text-align: center; /* Centreren */
 }
 
 .feature-box span {
-  font-size: 50px;
+  font-size: 50px; /* Groot icoon */
 }
 
 .feature-box h3 {
-  margin: 20px 0;
-  color: #38BDF8;
+  margin: 20px 0; /* Ruimte */
+  color: #38BDF8; /* Blauw */
 }
 
+/* BRANDS sectie */
 .brands {
-  padding: 80px 40px;
-  background: #0F172A;
+  padding: 80px 40px; /* Ruimte */
+  background: #0F172A; /* Donker achtergrond */
 }
 
-/* Grid voor merkkaarten */
+/* Brand grid */
 .brand-grid {
-  /* Gebruik CSS Grid om een responsieve lay-out te maken 
-  met automatisch aanpasbare kolommen van minimaal 200px breed */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  margin-top: 50px;
+  display: grid; /* Grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsief */
+  gap: 25px; /* Ruimte */
+  margin-top: 50px; /* Bovenruimte */
 }
 
+/* Brand card */
 .brand-card {
-  background: #1F2937;
-  padding: 50px;
-  text-align: center;
-  border-radius: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #38BDF8;
+  background: #1F2937; /* Donker */
+  padding: 50px; /* Ruimte */
+  text-align: center; /* Centreren */
+  border-radius: 15px; /* Ronde hoeken */
+  font-size: 28px; /* Groot */
+  font-weight: bold; /* Vet */
+  color: #38BDF8; /* Blauw */
 }
 
-/* CONTACT sectie */
+/* CONTACT */
 .contact-container {
-  max-width: 700px;
-  margin: 50px auto;
-  background: #1F2937;
-  padding: 40px;
-  border-radius: 15px;
-  text-align: center;
+  max-width: 700px; /* Maximale breedte */
+  margin: 50px auto; /* Centreren */
+  background: #1F2937; /* Donker */
+  padding: 40px; /* Ruimte */
+  border-radius: 15px; /* Ronde hoeken */
+  text-align: center; /* Centreren */
 }
 
+/* Contact titel */
 .contact-container h2 {
-  color: #38BDF8;
-  margin-bottom: 20px;
-  font-size: 32px;
+  color: #38BDF8; /* Blauw */
+  margin-bottom: 20px; /* Ruimte */
+  font-size: 32px; /* Groot */
 }
 
+/* Contact tekst */
 .contact-container p {
-  margin-bottom: 30px;
-  color: #CBD5E1;
+  margin-bottom: 30px; /* Ruimte */
+  color: #CBD5E1; /* Lichtgrijs */
 }
 
-/* Formulier layout */
+/* Formulier */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: flex; /* Flex */
+  flex-direction: column; /* Onder elkaar */
+  gap: 20px; /* Ruimte */
 }
 
+/* Inputs */
 .contact-form input,
 .contact-form textarea {
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  background: #F8FAFC;
-  color: #111827;
+  padding: 14px; /* Ruimte */
+  border: none; /* Geen rand */
+  border-radius: 10px; /* Ronde hoeken */
+  font-size: 16px; /* Tekst */
+  background: #F8FAFC; /* Licht */
+  color: #111827; /* Donker */
 }
 
+/* Labels */
 .contact-form label {
-  font-weight: bold;
-  color: #38BDF8;
-  text-align: left;
+  font-weight: bold; /* Vet */
+  color: #38BDF8; /* Blauw */
+  text-align: left; /* Links */
 }
 
-/* Foutmelding stijl */
+/* Error tekst */
 .error {
-  color: #EF4444;
-  font-size: 14px;
-  text-align: left;
+  color: #EF4444; /* Rood */
+  font-size: 14px; /* Klein */
+  text-align: left; /* Links */
 }
 
-/* Succesbericht stijl */
+/* Succes bericht */
 #successMessage {
-  color: #38BDF8;
-  margin-top: 20px;
-  font-weight: bold;
+  color: #38BDF8; /* Blauw */
+  margin-top: 20px; /* Ruimte */
+  font-weight: bold; /* Vet */
 }
 
 /* FOOTER */
 footer {
-  background: #0F172A; 
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-  color: #94A3B8; 
+  background: #0F172A; /* Donker */
+  text-align: center; /* Centreren */
+  padding: 30px; /* Ruimte */
+  margin-top: 50px; /* Bovenruimte */
+  color: #94A3B8; /* Grijs */
 }
 
-/* LOCATION sectie */
+/* LOCATION */
 .location-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  padding: 80px 40px;
-  flex-wrap: wrap;
+  display: flex; /* Flex */
+  justify-content: center; /* Centreren */
+  align-items: center; /* Verticaal */
+  gap: 50px; /* Ruimte */
+  padding: 80px 40px; /* Ruimte */
+  flex-wrap: wrap; /* Wrap */
 }
 
 .location iframe {
-  width: 600px;
-  max-width: 100%;
-  border-radius: 15px;
+  width: 600px; /* Breedte */
+  max-width: 100%; /* Responsief */
+  border-radius: 15px; /* Ronde hoeken */
 }
 
 .location-info {
-  max-width: 350px;
+  max-width: 350px; /* Breedte */
 }
 
 .location-info p {
-  text-align: left;
-  margin-bottom: 25px;
+  text-align: left; /* Links */
+  margin-bottom: 25px; /* Ruimte */
 }
 
-/* MAIN content stijl */
+/* MAIN */
 main {
-  display: none;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+  display: none; /* Verborgen standaard */
+  max-width: 600px; /* Breedte */
+  margin: auto; /* Centreren */
+  padding: 20px; /* Ruimte */
 }
 
-/* Afbeelding styling */
+/* AFBEELDING */
 #afbeelding {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-  height: auto;
+  display: block; /* Block element */
+  margin: 20px auto; /* Centreren */
+  max-width: 100%; /* Responsief */
+  height: auto; /* Verhouding behouden */
 }
 
-/* Basis responsive instellingen voor tekst en containers */
+/* BODY padding */
 body {
-  padding: 0 20px;
+  padding: 0 20px; /* Ruimte links/rechts */
 }
 
-/* Algemene koppen aanpassen voor kleinere schermen */
+/* RESPONSIVE TABLET */
 @media (max-width: 768px) {
-  /* Koppen kleiner maken */
+
   h1 {
-    font-size: 30px;
+    font-size: 30px; /* Kleinere titel */
   }
+
   h2 {
-    font-size: 28px;
+    font-size: 28px; /* Kleinere kop */
   }
-  /* Hero sectie tekst kleiner maken */
+
   .hero-content h2 {
-    font-size: 30px;
+    font-size: 30px; /* Hero kleiner */
   }
-  /* Verklein de product kaarten */
+
   .card {
-    max-width: 100%;
+    max-width: 100%; /* Vol breed op mobiel */
   }
-  /* Verklein de grid voor producten en merken */
+
   .products, .brand-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
   }
-  /* Verbeter de layout van de locatie iframe en info */
+
   .location-wrapper {
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: column; /* Onder elkaar */
+    gap: 30px; /* Ruimte */
   }
+
   .location iframe {
-    width: 100%;
+    width: 100%; /* Vol breed */
   }
+
   .location-info {
-    max-width: 100%;
+    max-width: 100%; /* Vol breed */
   }
-  /* Header en navigatie aanpassen voor mobiel */
+
   header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Onder elkaar */
+    align-items: flex-start; /* Links */
   }
+
   nav {
-    width: 100%;
-    justify-content: space-around;
+    width: 100%; /* Vol breed */
+    justify-content: space-around; /* Verdeling */
   }
 }
 
-/* Extra media voor zeer kleine schermen */
+/* RESPONSIVE MOBILE */
 @media (max-width: 480px) {
-  /* Nog kleinere tekstgroottes */
+
   body p {
-    font-size: 16px;
+    font-size: 16px; /* Kleinere tekst */
   }
-  /* Hero tekst kleiner maken */
+
   .hero-content h2 {
-    font-size: 24px;
+    font-size: 24px; /* Kleine hero */
   }
-  /* Product kaarten aanpassen */
+
   .card {
-    padding: 5px;
+    padding: 5px; /* Minder padding */
   }
-  /* Buttons en input velden aanpassen */
+
   .search-bar input,
   #sortSelect {
-    width: 100%;
+    width: 100%; /* Vol breed input */
   }
-  /* Footer padding aanpassen */
+
   footer {
-    padding: 20px;
+    padding: 20px; /* Kleinere footer */
   }
 }
